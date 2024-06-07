@@ -5,7 +5,7 @@ namespace Backend_farmlogitech.Ratings.Domain.Repositories;
 
 public interface IRatingRepository: IBaseRepository<Rating>
 {
-    Task<IEnumerable<Rating>> FindByUserIdAsync(int userId);
+    Task<Rating>FindByUserIdAsync(int userId);
  
     Task<IEnumerable<Rating>> FindByAllRatingAsync();
    
