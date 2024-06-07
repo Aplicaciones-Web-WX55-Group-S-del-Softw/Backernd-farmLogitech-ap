@@ -2,6 +2,12 @@ using backend_famLogitech_aw.Shared.Domain.Repositories;
 using backend_famLogitech_aw.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration;
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Repositories;
+using Backend_farmlogitech.DashboardAnalytics.Application.Internal.CommandServices;
+using Backend_farmlogitech.DashboardAnalytics.Application.Internal.QueryServices;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Repositories.Expenses;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Repositories.Incomes;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Services;
+using Backend_farmlogitech.DashboardAnalytics.Infrastructure.Persistence.EFC.Repositories;
 using Backend_farmlogitech.Farms.Application.Internal.CommandServices;
 using Backend_farmlogitech.Farms.Application.Internal.QueryServices;
 using Backend_farmlogitech.Farms.Domain.Repositories;
@@ -77,6 +83,14 @@ builder.Services.AddScoped<ICropQueryService, CropQueryService>();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalCommandService, AnimalCommandService>();
 builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
+
+builder.Services.AddScoped<IIncomeRepository, IncomeRepository>();
+builder.Services.AddScoped<IIncomeCommandService, IncomeCommandService>();
+builder.Services.AddScoped<IIncomeQueryService, IncomeQueryService>();
+
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IExpenseCommandService, ExpenseCommandService>();
+builder.Services.AddScoped<IExpenseQueryService, ExpenseQueryService>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
