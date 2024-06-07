@@ -1,6 +1,7 @@
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
+using Backend_farmlogitech.Ratings.Domain.Model.Aggregates;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,8 +22,8 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-                //BORRAR TODAS LAS TABLAS ANTES DE CREAR NUEVAS, PARA QUE SE ACTUALICE
+            
+            //BORRAR TODAS LAS TABLAS ANTES DE CREAR NUEVAS, PARA QUE SE ACTUALICE
             // Configuración de la entidad Farm
             builder.Entity<Farm>().ToTable("Farms");
             builder.Entity<Farm>().HasKey(f => f.Id);
@@ -60,6 +61,12 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.ShedId);
             builder.UseSnakeCaseNamingConvention();
             
+            //Configuracion de la entidad Rating
+            builder.Entity<Rating>().ToTable("Ratings");
+            builder.Entity<Rating>().HasKey(f => f.Id);
+            builder.Entity<Rating>().Property(f => f.StarRating);
+            builder.Entity<Rating>().Property(f => f.UserId);
+            builder.UseSnakeCaseNamingConvention();
         }
     }
 }
