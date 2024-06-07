@@ -1,0 +1,6 @@
+@Backend_farmlogitech_HostAddress =  http://localhost:5066
+
+GET {{Backend_farmlogitech_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
