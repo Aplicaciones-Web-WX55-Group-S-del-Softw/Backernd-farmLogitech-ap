@@ -12,7 +12,7 @@ public class RatingQueryService (IRatingRepository ratingRepository) : IRatingQu
         return await ratingRepository.FindByIdAsync(query.Id);
     }
     
-    public async Task<IEnumerable<Rating>> Handle(GetRatingByUserIdQuery query)
+    public async Task<Rating> Handle(GetRatingByUserIdQuery query)
     {
         return await ratingRepository.FindByUserIdAsync(query.UserId);
     }
