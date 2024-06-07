@@ -22,6 +22,11 @@ using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Ratings.Application.Internal.CommandServices;
+using Backend_farmlogitech.Ratings.Application.Internal.QueryServices;
+using Backend_farmlogitech.Ratings.Domain.Repositories;
+using Backend_farmlogitech.Ratings.Domain.Services;
+using Backend_farmlogitech.Ratings.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -66,6 +71,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IFarmRepository, FarmRepository>();
 builder.Services.AddScoped<IFarmCommandService, FarmCommandService>();
 builder.Services.AddScoped<IFarmQueryService, FarmQueryService>();
+
 builder.Services.AddScoped<IShedRepository, ShedRepository>();
 builder.Services.AddScoped<IShedCommandService, ShedCommandService>();
 builder.Services.AddScoped<IShedQueryService, ShedQueryService>();
@@ -77,6 +83,10 @@ builder.Services.AddScoped<ICropQueryService, CropQueryService>();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalCommandService, AnimalCommandService>();
 builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
+
+builder.Services.AddScoped<IRatingRepository, RatingRepository>();
+builder.Services.AddScoped<IRatingCommandService, RatingCommandService>();
+builder.Services.AddScoped<IRatingQueryService, RatingQueryService>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
