@@ -22,6 +22,11 @@ using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Subscriptions.Application.Internal.CommandServices;
+using Backend_farmlogitech.Subscriptions.Application.Internal.QueryServices;
+using Backend_farmlogitech.Subscriptions.Domain.Repositories;
+using Backend_farmlogitech.Subscriptions.Domain.Services;
+using Backend_farmlogitech.Subscriptions.Infrastructure.Persistance.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -77,6 +82,10 @@ builder.Services.AddScoped<ICropQueryService, CropQueryService>();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalCommandService, AnimalCommandService>();
 builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
+
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+builder.Services.AddScoped<ISubscriptionCommandService, SubscriptionCommandService>();
+builder.Services.AddScoped<ISubscriptionQueryService, SubscriptionQueryService>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
