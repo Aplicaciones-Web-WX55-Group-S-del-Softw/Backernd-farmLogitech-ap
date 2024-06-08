@@ -13,15 +13,20 @@ using Backend_farmlogitech.Monitoring.Application.Internal.Crops.CommandServices
 using Backend_farmlogitech.Monitoring.Application.Internal.Crops.QueryServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Sheds.CommandServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Sheds.QueryServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Tasks.CommandServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Tasks.QueryServices;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Sheds;
+using Backend_farmlogitech.Monitoring.Domain.Repositories.Tasks;
 using Backend_farmlogitech.Monitoring.Domain.Services.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Services.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
+using Backend_farmlogitech.Monitoring.Domain.Services.Tasks;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -77,6 +82,10 @@ builder.Services.AddScoped<ICropQueryService, CropQueryService>();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalCommandService, AnimalCommandService>();
 builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
+
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskCommandService, TaskCommandService>();
+builder.Services.AddScoped<ITaskQueryService, TaskQueryService>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
