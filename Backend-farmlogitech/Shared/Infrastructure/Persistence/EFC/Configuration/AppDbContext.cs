@@ -22,7 +22,6 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
         {
             base.OnModelCreating(builder);
 
-                //BORRAR TODAS LAS TABLAS ANTES DE CREAR NUEVAS, PARA QUE SE ACTUALICE
             // Configuración de la entidad Farm
             builder.Entity<Farm>().ToTable("Farms");
             builder.Entity<Farm>().HasKey(f => f.Id);
@@ -60,6 +59,13 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.ShedId);
             builder.UseSnakeCaseNamingConvention();
             
+            // Configuration of the Task entity
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().ToTable("Tasks");
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().HasKey(f => f.Id);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.CollaboratorId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.FarmerId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.Description);
+            builder.UseSnakeCaseNamingConvention();
         }
     }
 }
