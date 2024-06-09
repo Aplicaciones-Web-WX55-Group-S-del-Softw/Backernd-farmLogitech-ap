@@ -16,14 +16,4 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Monitoring\Application\Internal\Messages\" />
-      <Folder Include="Monitoring\Domain\Model\Queries\Message\" />
-      <Folder Include="Monitoring\Domain\Repositories\Messages\" />
-      <Folder Include="Monitoring\Domain\Services\Messages\" />
-      <Folder Include="Monitoring\Infrastructure\Persistence\EFC\Repositories\Messages\" />
-      <Folder Include="Monitoring\Interfaces\REST\Resources\Messages\" />
-      <Folder Include="Monitoring\Interfaces\REST\Transform\Messages\" />
-    </ItemGroup>
-
 </Project>
