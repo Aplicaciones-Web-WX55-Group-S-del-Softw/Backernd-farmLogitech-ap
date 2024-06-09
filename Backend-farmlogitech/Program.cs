@@ -11,21 +11,26 @@ using Backend_farmlogitech.Monitoring.Application.Internal.Animals.CommandServic
 using Backend_farmlogitech.Monitoring.Application.Internal.Animals.QueryServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Crops.CommandServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Crops.QueryServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Messages.CommandServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Messages.QueryServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Sheds.CommandServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Sheds.QueryServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Tasks.CommandServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Tasks.QueryServices;
+using Backend_farmlogitech.Monitoring.Domain.Repositories;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Sheds;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Tasks;
 using Backend_farmlogitech.Monitoring.Domain.Services.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Services.Crops;
+using Backend_farmlogitech.Monitoring.Domain.Services.Messages;
 using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
 using Backend_farmlogitech.Monitoring.Domain.Services.Tasks;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Messages;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -86,6 +91,10 @@ builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<ITaskCommandService, TaskCommandService>();
 builder.Services.AddScoped<ITaskQueryService, TaskQueryService>();
+
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+builder.Services.AddScoped<IMessageCommandService, MessageCommandService>();
+builder.Services.AddScoped<IMessageQueryService, MessageQueryService>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
