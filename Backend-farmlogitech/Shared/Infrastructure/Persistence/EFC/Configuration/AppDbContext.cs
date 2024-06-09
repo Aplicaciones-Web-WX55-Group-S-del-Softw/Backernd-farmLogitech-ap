@@ -66,6 +66,14 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.FarmerId);
             builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.Description);
             builder.UseSnakeCaseNamingConvention();
+            
+            // Configuration of the Message entity
+            builder.Entity<Message>().ToTable("Messages");
+            builder.Entity<Message>().HasKey(f => f.Id);
+            builder.Entity<Message>().Property(f => f.CollaboratorId);
+            builder.Entity<Message>().Property(f => f.Description);
+            builder.UseSnakeCaseNamingConvention();
+            
         }
     }
 }
