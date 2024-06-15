@@ -1,3 +1,4 @@
+using Backend_farmlogitech.Monitoring.Domain.Model.Commands.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Model.Queries.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Services.Crops;
 using Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Crops;
@@ -56,9 +57,9 @@ public class CropController : ControllerBase
     }
     
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteCrop([FromBody] DeleteCropResource resource)
+    public async Task<ActionResult> DeleteCrop(int id)
     {
-        var deleteCropCommand = DeleteCropCommandFromResourceAssembler.ToCommandFromResource(resource);
+        var deleteCropCommand = new DeleteCropCommand(id); 
         var result = await _cropCommandService.Handle(deleteCropCommand);
         return Ok(CropResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
