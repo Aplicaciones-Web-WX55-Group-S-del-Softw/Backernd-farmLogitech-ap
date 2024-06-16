@@ -1,12 +1,13 @@
 using Backend_farmlogitech.Profiles.Domain.Model.Aggregates;
 using Backend_farmlogitech.Profiles.Domain.Model.Queries;
 using Backend_farmlogitech.Profiles.Domain.Repositories;
+using Backend_farmlogitech.Profiles.Domain.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Backend_farmlogitech.Profiles.Application.Internal.QueryServices
 {
-    public class ProfileQueryService
+    public class ProfileQueryService : IProfileQueryService
     {
         private readonly IProfileRepository _profileRepository;
 
