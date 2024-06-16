@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +26,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Application/Internal/CommandServices/ProfileCommandService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Application/Internal/CommandServices/ProfileCommandService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Application/Internal/QueryServices/ProfileQueryService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Application/Internal/QueryServices/ProfileQueryService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Application/Internal/QueryServices/ProfileQueryService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Application/Internal/QueryServices/ProfileQueryService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Profiles/Interfaces/ProfileController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web final/Backend-farmlogitech/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -42,7 +52,10 @@
   "keyToString": {
     ".NET Launch Settings Profile.Backend-farmlogitech: IIS Express.executor": "Debug",
     ".NET Launch Settings Profile.Backend-farmlogitech: http.executor": "Run",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "profiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,9 +69,9 @@
       "mysql"
     ],
     "rider.external.source.directories": [
-      "C:\\Users\\giaco\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\giaco\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\giaco\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\USUARIO\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\USUARIO\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\USUARIO\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -136,7 +149,63 @@
       <option name="project" value="LOCAL" />
       <updated>1718488558692</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat(profiles): update controller">
+      <option name="closed" value="true" />
+      <created>1718576485723</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576485723</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat(profiles): profiles context facade implemented.">
+      <option name="closed" value="true" />
+      <created>1718576515825</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576515825</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat(profiles): program.cs updated.">
+      <option name="closed" value="true" />
+      <created>1718576534118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576534118</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat(profiles): ProfileAudit.cs implemented.">
+      <option name="closed" value="true" />
+      <created>1718576876098</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576876098</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat(profiles): AppDbContext.cs implemented.">
+      <option name="closed" value="true" />
+      <created>1718576901827</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576901827</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat(profiles): appsettings.json and gitignore updated.">
+      <option name="closed" value="true" />
+      <created>1718576948906</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576948906</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat(profiles): ProfileCommandService.cs and profilequeryservice updated">
+      <option name="closed" value="true" />
+      <created>1718576991408</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718576991408</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +217,32 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="feat(monitoring): Fixed validation and http delete and put" />
     <MESSAGE value="feat(monitoring):  Added unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(monitoring):  Added unversioned files" />
+    <MESSAGE value="feat(profiles): update controller" />
+    <MESSAGE value="feat(profiles): profiles context facade implemented." />
+    <MESSAGE value="feat(profiles): program.cs updated." />
+    <MESSAGE value="feat(profiles): ProfileAudit.cs implemented." />
+    <MESSAGE value="feat(profiles): AppDbContext.cs implemented." />
+    <MESSAGE value="feat(profiles): appsettings.json and gitignore updated." />
+    <MESSAGE value="feat(profiles): ProfileCommandService.cs and profilequeryservice updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(profiles): ProfileCommandService.cs and profilequeryservice updated" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Model/Aggregates/Profile.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Users\USUARIO\OneDrive\Escritorio\back de web final\Backend-farmlogitech\Profiles\Domain\Model\Aggregates\Profile.cs" containingFunctionPresentation="Constructor 'Profile'">
+            <startOffsets>
+              <option value="731" />
+            </startOffsets>
+            <endOffsets>
+              <option value="768" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
