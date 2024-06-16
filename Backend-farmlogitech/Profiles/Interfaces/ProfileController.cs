@@ -35,6 +35,10 @@ namespace Backend_farmlogitech.Profiles.Interfaces
         {
             var query = new GetProfileByProfileIdQuery(id);
             var result = await _profileQueryService.Handle(query);
+            if (result == null)
+            {
+                return NotFound($"Profile with ID {id} not found.");
+            }
             var resource = ProfileResourceFromEntityAssembler.ToResource(result);
             return Ok(resource);
         }
