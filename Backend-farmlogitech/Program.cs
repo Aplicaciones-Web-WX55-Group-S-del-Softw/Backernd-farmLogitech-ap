@@ -22,6 +22,13 @@ using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Profiles.Application.Internal.CommandServices;
+using Backend_farmlogitech.Profiles.Application.Internal.QueryServices;
+using Backend_farmlogitech.Profiles.Domain.Repositories;
+using Backend_farmlogitech.Profiles.Domain.Services;
+using Backend_farmlogitech.Profiles.Infrastructure.Persistance.EFC.Repositories;
+using Backend_farmlogitech.Profiles.Interfaces.ACL;
+using Backend_farmlogitech.Profiles.Interfaces.ACL.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -38,9 +45,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-
-
 
 // Configure Database Context and Logging Levels
 builder.Services.AddDbContext<AppDbContext>(
@@ -60,6 +64,7 @@ builder.Services.AddDbContext<AppDbContext>(
     });
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
+builder.Services.AddHttpContextAccessor(); // Add this line
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -78,7 +83,28 @@ builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalCommandService, AnimalCommandService>();
 builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
 
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5077") // Replace with the origin you want to allow
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
+
+// Use CORS
+app.UseCors();
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
