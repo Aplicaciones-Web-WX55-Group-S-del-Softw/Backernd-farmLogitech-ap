@@ -14,11 +14,11 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
     {
         private readonly IMessageCommandService messageCommandService;
         private readonly IMessageQueryService messageQueryService;
-
+        
         public MessageController(IMessageCommandService messageCommandService, IMessageQueryService messageQueryService)
         {
-            messageCommandService = messageCommandService;
-            messageQueryService = messageQueryService;
+            this.messageCommandService = messageCommandService;
+            this.messageQueryService = messageQueryService;
         }
 
         [HttpPost("createMessage")]
