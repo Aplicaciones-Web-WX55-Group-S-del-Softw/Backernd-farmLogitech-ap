@@ -8,6 +8,12 @@ namespace Backend_farmlogitech.Subscriptions.Application.Internal.QueryServices;
 public class SubscriptionQueryService : ISubscriptionQueryService
 {
     private ISubscriptionRepository _subscriptionRepository;
+
+    public SubscriptionQueryService(ISubscriptionRepository subscriptionRepository)
+    {
+        _subscriptionRepository = subscriptionRepository;
+    }
+
     public async Task<Subscription> Handle(GetSubscriptionByIdQuery query)
     {
         return await _subscriptionRepository.FindByIdAsync(query.Id); 
