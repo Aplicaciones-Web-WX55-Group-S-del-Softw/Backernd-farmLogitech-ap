@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Backend_farmlogitech.IAM.Infrastructure.Pipeline.Middleware.Attributes;
 using Backend_farmlogitech.Profiles.Domain.Model.Queries;
 using Backend_farmlogitech.Profiles.Domain.Services;
 using Backend_farmlogitech.Profiles.Interfaces.REST.Resources;
@@ -10,6 +11,8 @@ namespace Backend_farmlogitech.Profiles.Interfaces
     [ApiController]
     [Route("api/v1/[controller]")]
     [Produces(MediaTypeNames.Application.Json)]
+    [Authorize]
+
     public class ProfileController : ControllerBase
     {
         private IProfileQueryService _profileQueryService;

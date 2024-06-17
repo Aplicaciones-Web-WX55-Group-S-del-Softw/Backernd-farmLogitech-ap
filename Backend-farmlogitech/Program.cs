@@ -14,6 +14,7 @@ using Backend_farmlogitech.IAM.Domain.Repositories;
 using Backend_farmlogitech.IAM.Domain.Services;
 using Backend_farmlogitech.IAM.Infrastructure.Hashing.BCrypt.Services;
 using Backend_farmlogitech.IAM.Infrastructure.Persistence.EFC.Repositories;
+using Backend_farmlogitech.IAM.Infrastructure.Pipeline.Middleware.Extensions;
 using Backend_farmlogitech.IAM.Infrastructure.Tokens.JWT.Configuration;
 using Backend_farmlogitech.IAM.Infrastructure.Tokens.JWT.Services;
 using Backend_farmlogitech.IAM.Interfaces.ACL;
@@ -161,23 +162,9 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IHashingService, HashingService>();
 builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 
-// Add CORS
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        builder =>
-        {
-            builder.WithOrigins("http://localhost:5077") // Replace with the origin you want to allow
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
-        });
-});
-
 var app = builder.Build();
 
-// Use CORS
-app.UseCors();
-
+// Verify Database Objects are created
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -185,7 +172,7 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -193,6 +180,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("AllowAllPolicy");
+
+// Add authorization middleware to pipeline
+app.UseRequestAuthorization();
 
 app.UseHttpsRedirection();
 

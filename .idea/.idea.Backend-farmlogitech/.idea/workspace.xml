@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="" />
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/CropController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/CropController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/ProfileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/ProfileController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,34 +51,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Backend-farmlogitech: IIS Express.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.Backend-farmlogitech: http.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;profiles&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Backend-farmlogitech: IIS Express.executor": "Debug",
+    ".NET Launch Settings Profile.Backend-farmlogitech: http.executor": "Run",
+    ".NET Launch Settings Profile.Backend-farmlogitech: https.executor": "Run",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "profiles",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\USUARIO\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\USUARIO\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\USUARIO\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\USUARIO\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\USUARIO\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\USUARIO\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Backend-farmlogitech: http">
+}]]></component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.Backend-farmlogitech: https">
     <configuration name="Backend-farmlogitech: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Backend-farmlogitech/Backend-farmlogitech.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -232,14 +236,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Model/Aggregates/Profile.cs</url>
           <line>24</line>
-          <properties documentPath="C:\Users\USUARIO\OneDrive\Escritorio\back de web final\Backend-farmlogitech\Profiles\Domain\Model\Aggregates\Profile.cs" containingFunctionPresentation="Constructor 'Profile'">
-            <startOffsets>
-              <option value="731" />
-            </startOffsets>
-            <endOffsets>
-              <option value="768" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Users\USUARIO\OneDrive\Escritorio\back de web final\Backend-farmlogitech\Profiles\Domain\Model\Aggregates\Profile.cs" containingFunctionPresentation="Constructor 'Profile'" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
