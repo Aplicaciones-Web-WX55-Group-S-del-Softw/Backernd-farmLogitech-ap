@@ -1,6 +1,8 @@
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
+using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
+using Backend_farmlogitech.Profiles.Domain.Model.Aggregates;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 

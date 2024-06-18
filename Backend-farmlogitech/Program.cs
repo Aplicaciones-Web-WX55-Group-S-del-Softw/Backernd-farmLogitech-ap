@@ -213,14 +213,14 @@ if (app.Environment.IsDevelopment())
 
 
 
-app.UseCors("AllowAllPolicy");
+//app.UseCors("AllowAllPolicy");
 
-// Add authorization middleware to pipeline
-app.UseRequestAuthorization();
+
+// app.UseRequestAuthorization();
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapControllers();
 
