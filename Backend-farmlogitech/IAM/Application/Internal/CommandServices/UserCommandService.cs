@@ -4,6 +4,7 @@ using Backend_farmlogitech.IAM.Domain.Services;
 using backend_famLogitech_aw.Shared.Domain.Repositories;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.IAM.Domain.Model.Commands;
+using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
 
 namespace Backend_farmlogitech.IAM.Application.Internal.CommandServices;
 
@@ -20,7 +21,12 @@ public class UserCommandService(
             throw new Exception($"Username {command.Username} is already taken");
         
         var hashedPassword = hashingService.HashPassword(command.Password);
-        var user = new User(command.Username, hashedPassword);
+        if (!Enum.IsDefined(typeof(Role), command.Role))
+        {
+            throw new Exception($"Invalid role: {command.Role}");
+        }
+
+        var user = new User(command.Username, hashedPassword, command.Role);
         try
         {
             await userRepository.AddAsync(user);
