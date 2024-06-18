@@ -9,7 +9,7 @@ public static class CreateFarmCommandFromResourceAssembler
     {
         return new CreateFarmCommand( resource.FarmName, resource.Location, resource.Type,
             resource.Infrastructure, resource.Certificate, resource.Product, resource.Services, resource.Status,
-            resource.Image, resource.Price, resource.Surface, resource.Highlights, resource.UserId );
+            resource.Image, resource.Price, resource.Surface, resource.Highlights );
     }
     
 }
