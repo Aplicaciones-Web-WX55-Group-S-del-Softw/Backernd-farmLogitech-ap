@@ -56,14 +56,14 @@ public class FarmCommandService : IFarmCommandService
 
     public async Task<Farm> Handle(UpdateFarmCommand command)
     {
-        /*
-        var farmToUpdate = await farmRepository.FindByIdx(command.Id);
+        
+        var farmToUpdate = await farmRepository.FindByIdAsync(command.Id);
         if (farmToUpdate == null)
             throw new Exception("Farm with ID does not exist");
         farmToUpdate.Update(command);
         await unitOfWork.CompleteAsync();
         return farmToUpdate;
-        */
+        
         return null;
     }
 }
