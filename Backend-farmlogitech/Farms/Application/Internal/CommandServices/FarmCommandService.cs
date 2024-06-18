@@ -20,35 +20,17 @@ public class FarmCommandService : IFarmCommandService
         this.farmRepository = farmRepository;
         this.httpContextAccessor = httpContextAccessor;
     }
-
     public int GetAuthenticatedUserId()
     {
-        var userClaims = httpContextAccessor.HttpContext?.User;
-        if (userClaims == null || !userClaims.Identity.IsAuthenticated)
-        {
-            throw new Exception("User is not authenticated");
-        }
-
-        var userIdClaim = userClaims.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userIdClaim == null)
-        {
-            throw new Exception("User ID claim is missing");
-        }
-
-        if (!int.TryParse(userIdClaim, out int userId))
-        {
-            throw new Exception("User ID claim is not a valid integer");
-        }
-
-        return userId;
+        return 0;
     }
-
+    
     public async Task<Farm> Handle(CreateFarmCommand command)
     {
-        var userId= GetAuthenticatedUserId();
-        
+       var userGlobal= User.GlobalVariables.UserId;
+
         var farmNew = new Farm(command);
-        farmNew.UserId = userId;
+        farmNew.UserId = userGlobal;
         await farmRepository.AddAsync(farmNew);
         await unitOfWork.CompleteAsync();
         return farmNew;

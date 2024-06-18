@@ -52,7 +52,10 @@ public class User(string username, string passwordHash, Role role)
         }
 
     }
-    
+    public static class GlobalVariables
+    {
+        public static int UserId { get; set; }
+    }
     
     
     
