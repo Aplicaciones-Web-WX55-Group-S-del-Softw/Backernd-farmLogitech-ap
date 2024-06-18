@@ -8,6 +8,6 @@ namespace Backend_farmlogitech.DashboardAnalytics.Domain.Services;
 public interface IIncomeQueryService
 {
     Task<Income> Handle(GetIncomeByIdQuery query);
-    Task<Income?> Handle(GetIncomeByCategoryAndPeriodQuery query);
-    Task<IEnumerable<Income>> Handle(GetAllIncomeByCategoryAndPeriodQuery query);
+    Task<Income?> Handle(GetIncomeByCategoryAndDateQuery query);
+    Task<IEnumerable<Income>> Handle(GetAllIncomeByFarmIdQuery query);
 }

@@ -5,7 +5,9 @@ namespace Backend_farmlogitech.DashboardAnalytics.Domain.Repositories.Expenses;
 
 public interface IExpenseRepository : IBaseRepository<Expense>
 {
-    Task<IEnumerable<Expense>> GetAllByCategoryAndPeriod(string category, string period); 
-    Task<Expense?> GetByCategoryAndPeriod(string category, string period); 
+    Task<IEnumerable<Expense>> GetAllByFarmId(int FarmId); 
+    Task<Expense?> GetByCategoryAndDate(string category, string date); 
+    
+    Task<Expense?> GetExpenseById(int id);
 
 }

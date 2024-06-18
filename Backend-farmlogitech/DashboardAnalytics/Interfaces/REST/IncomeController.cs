@@ -41,19 +41,19 @@ public class IncomeController : ControllerBase
         return Ok(resource);
     }
     
-    [HttpGet("income/{category}/{period}")]
-    public async Task<ActionResult> GetIncomeByCategoryAndPeriod(string category, string period)
+    [HttpGet("filter/{category}/{date}")]
+    public async Task<ActionResult> GetIncomeByCategoryAndDate(string category, string date)
     {
-        var query = new GetIncomeByCategoryAndPeriodQuery(category, period);
+        var query = new GetIncomeByCategoryAndDateQuery(category, date);
         var result = await _incomeQueryService.Handle(query);
         var resource = IncomeResourceFromEntityAssembler.ToResource(result);
         return Ok(resource);
     }
     
-    [HttpGet("income/all")]
-    public async Task<ActionResult> GetAllIncomeByCategoryAndPeriod(string category, string period)
+    [HttpGet("filter/all")]
+    public async Task<ActionResult> GetAllExpenseByFarmId(int farmid)
     {
-        var query = new GetAllIncomeByCategoryAndPeriodQuery(category, period);
+        var query = new GetAllIncomeByFarmIdQuery(farmid); 
         var result = await _incomeQueryService.Handle(query);
         var resource = result.Select(IncomeResourceFromEntityAssembler.ToResource);
         return Ok(resource);

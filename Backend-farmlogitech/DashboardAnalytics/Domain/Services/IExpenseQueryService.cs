@@ -6,6 +6,6 @@ namespace Backend_farmlogitech.DashboardAnalytics.Domain.Services;
 public interface IExpenseQueryService
 {
     Task<Expense> Handle(GetExpenseByIdQuery query);
-    Task<Expense> Handle(GetExpenseByCategoryAndPeriodQuery query);
-    Task<IEnumerable<Expense>> Handle(GetAllByCategoryAndPeriodQuery query);
+    Task<Expense> Handle(GetExpenseByCategoryAndDateQuery query);
+    Task<IEnumerable<Expense>> Handle(GetAllByFarmIdQuery query);
 }

@@ -8,23 +8,23 @@ namespace Backend_farmlogitech.DashboardAnalytics.Application.Internal.CommandSe
 
 public class IncomeCommandService : IIncomeCommandService
 {
-    private readonly IIncomeRepository _IncomeRepository;
+    private readonly IIncomeRepository _incomeRepository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public IncomeCommandService(IIncomeRepository IncomeRepository, IUnitOfWork unitOfWork)
+    public IncomeCommandService(IIncomeRepository incomeRepository, IUnitOfWork unitOfWork)
     {
-        _IncomeRepository = IncomeRepository;
+        _incomeRepository = incomeRepository;
         _unitOfWork = unitOfWork;
     }
 
     public async Task<Income> Handle(CreateIncomeCommand command)
     {
-        var income1 = await _IncomeRepository.GetByCategoryAndPeriod(
-            command.Category, command.Period);
+        var income1 = await _incomeRepository.GetByCategoryAndDate(
+            command.Category, command.Date);
         if(income1 != null)
             throw new Exception("Income already exists");
         income1 = new Income(command);
-        await _IncomeRepository.AddAsync(income1);
+        await _incomeRepository.AddAsync(income1);
         await _unitOfWork.CompleteAsync();
         return income1;
     }

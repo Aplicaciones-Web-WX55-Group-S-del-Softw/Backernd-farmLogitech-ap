@@ -81,6 +81,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Income>().Property(f => f.Description);
             builder.Entity<Income>().Property(f => f.Date);
             builder.Entity<Income>().Property(f => f.Period);
+            builder.Entity<Income>().Property(f => f.FarmId);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad Expense
@@ -91,6 +92,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Expense>().Property(f => f.Description);
             builder.Entity<Expense>().Property(f => f.Date);
             builder.Entity<Expense>().Property(f => f.Period);
+            builder.Entity<Expense>().Property(f => f.FarmId);
             builder.UseSnakeCaseNamingConvention();
             
             // Configuration of the Task entity

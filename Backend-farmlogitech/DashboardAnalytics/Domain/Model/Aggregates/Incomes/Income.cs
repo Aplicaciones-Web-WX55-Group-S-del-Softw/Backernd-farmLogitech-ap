@@ -16,6 +16,8 @@ public class Income
     
     public string Period { get; private set; }
     
+    public int FarmId{ get; private set; }
+    
     protected Income()
     {
         Category = string.Empty;
@@ -23,6 +25,7 @@ public class Income
         Amount = 0;
         Date = string.Empty;
         Period = string.Empty;
+        FarmId = 0;
     }
     
     public Income(CreateIncomeCommand command)
@@ -32,6 +35,7 @@ public class Income
         this.Amount=command.Amount;
         this.Date=command.Date;
         this.Period=command.Period;
+        this.FarmId=command.FarmId;
     }
     
 }
