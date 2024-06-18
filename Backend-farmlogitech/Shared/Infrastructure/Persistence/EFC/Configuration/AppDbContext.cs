@@ -1,4 +1,6 @@
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Model.Aggregates.Expenses;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Model.Aggregates.Incomes;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
@@ -60,6 +62,26 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.PlantingDate);
             builder.Entity<Crop>().Property(f => f.Quantity);
             builder.Entity<Crop>().Property(f => f.ShedId);
+            builder.UseSnakeCaseNamingConvention();
+            
+            //Configuracion de la entidad Income
+            builder.Entity<Income>().ToTable("Incomes");
+            builder.Entity<Income>().HasKey(f => f.Id);
+            builder.Entity<Income>().Property(f => f.Category);
+            builder.Entity<Income>().Property(f => f.Amount);
+            builder.Entity<Income>().Property(f => f.Description);
+            builder.Entity<Income>().Property(f => f.Date);
+            builder.Entity<Income>().Property(f => f.Period);
+            builder.UseSnakeCaseNamingConvention();
+            
+            //Configuracion de la entidad Expense
+            builder.Entity<Expense>().ToTable("Expenses");
+            builder.Entity<Expense>().HasKey(f => f.Id);
+            builder.Entity<Expense>().Property(f => f.Category);
+            builder.Entity<Expense>().Property(f => f.Amount);
+            builder.Entity<Expense>().Property(f => f.Description);
+            builder.Entity<Expense>().Property(f => f.Date);
+            builder.Entity<Expense>().Property(f => f.Period);
             builder.UseSnakeCaseNamingConvention();
             
             // Configuration of the Task entity
