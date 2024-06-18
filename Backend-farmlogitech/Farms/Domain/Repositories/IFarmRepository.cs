@@ -12,6 +12,6 @@ public interface IFarmRepository: IBaseRepository<Farm>
     Task<IEnumerable<Farm>> FindByAllFarmAsync();
    
     
-    Task<Farm> FindByIdx(int id);
+    Task<Farm?> FindByUserId(int id);
   
 }

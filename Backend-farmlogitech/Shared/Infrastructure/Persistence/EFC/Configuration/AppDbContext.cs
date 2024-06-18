@@ -1,6 +1,8 @@
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
+using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
+using Backend_farmlogitech.Profiles.Domain.Model.Aggregates;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -60,6 +62,23 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.ShedId);
             builder.UseSnakeCaseNamingConvention();
             
+            //Configuracion de la entidad profile
+            builder.Entity<Profile>().ToTable("Profiles");
+            builder.Entity<Profile>().HasKey(p => p.id);
+            builder.Entity<Profile>().Property(p => p.name);
+            builder.Entity<Profile>().Property(p => p.email);
+            builder.Entity<Profile>().Property(p => p.direction);
+            builder.Entity<Profile>().Property(p => p.documentNumber);
+            builder.Entity<Profile>().Property(p => p.documentType);
+            builder.Entity<Profile>().Property(p => p.userId);
+            builder.UseSnakeCaseNamingConvention();
+            
+            // IAM Context
+            builder.Entity<User>().HasKey(u => u.Id);
+            builder.Entity<User>().Property(u => u.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<User>().Property(u => u.Username).IsRequired();
+            builder.Entity<User>().Property(u => u.PasswordHash).IsRequired();
+            builder.UseSnakeCaseNamingConvention();
         }
     }
 }
