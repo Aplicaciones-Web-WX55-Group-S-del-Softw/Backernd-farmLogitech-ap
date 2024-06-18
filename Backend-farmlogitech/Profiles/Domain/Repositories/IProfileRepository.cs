@@ -7,4 +7,5 @@ public interface IProfileRepository : IBaseRepository<Profile>
 {
     Task<IEnumerable<Profile>> FindAllProfiles();
     Task<Profile?> FindByIdAsync(long id);
+    Task<Profile?> GetProfileByUserId(long userId);
 }

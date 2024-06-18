@@ -21,4 +21,11 @@ public class ProfileRepository : BaseRepository<Profile>, IProfileRepository
     public async Task<Profile?> FindByIdAsync(long id)
     {
         return await Context.Set<Profile>().FirstOrDefaultAsync(f => f.id== id);}
+
+    public async Task<Profile?> GetProfileByUserId(long userId)
+    {
+        return await Context.Set<Profile>().FirstOrDefaultAsync(f => f.userId == userId);
+    }
+    
+    
 }

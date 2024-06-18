@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration;
+using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
+using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
+using Backend_farmlogitech.IAM.Domain.Repositories;
 
 namespace Backend_farmlogitech.Profiles.Application.Internal.CommandServices
 {
@@ -14,21 +17,34 @@ namespace Backend_farmlogitech.Profiles.Application.Internal.CommandServices
         private readonly IProfileRepository _profileRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly AppDbContext _dbContext; // Use AppDbContext here
+        private readonly IUserRepository userRepository;
 
-        public ProfileCommandService(IProfileRepository profileRepository, IHttpContextAccessor httpContextAccessor, AppDbContext dbContext) // Use AppDbContext here
+        public ProfileCommandService(IProfileRepository profileRepository, IHttpContextAccessor httpContextAccessor, AppDbContext dbContext, IUserRepository userRepository) // Use AppDbContext here
         {
             _profileRepository = profileRepository;
             _httpContextAccessor = httpContextAccessor;
-            _dbContext = dbContext; 
+            _dbContext = dbContext;
+            this.userRepository = userRepository;
         }
 
         public async Task<Profile> Handle(CreateProfileCommand command)
         {
-            var userIdClaim = command.UserId.ToString(); // Use the UserId from the command directly
+            var userId = User.GlobalVariables.UserId;
 
-            if (!int.TryParse(userIdClaim, out var userId))
+            // Get the role of the user
+            var userRole = await userRepository.GetUserRole(userId);
+
+            // Check if the user role is allowed to create a profile
+            if (userRole.Role != Role.FARMER && userRole.Role != Role.OWNER)
             {
-                throw new InvalidOperationException("User ID claim is not a valid integer.");
+                throw new Exception("Only users with allowed role can create a profile");
+            }
+
+            // Check if the user has already created a profile
+            var existingProfile = await _profileRepository.GetProfileByUserId(userId);
+            if (existingProfile != null)
+            {
+                throw new Exception("User has already created a profile");
             }
 
             var profile = new Profile(command)
@@ -36,6 +52,7 @@ namespace Backend_farmlogitech.Profiles.Application.Internal.CommandServices
                 id = userId
             };
 
+            profile.userId = userId;
             await _profileRepository.AddAsync(profile);
             await _dbContext.SaveChangesAsync(); // Add this line
 

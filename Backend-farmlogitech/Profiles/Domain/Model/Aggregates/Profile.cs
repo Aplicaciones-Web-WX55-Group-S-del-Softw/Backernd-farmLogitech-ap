@@ -34,6 +34,5 @@ public partial class Profile
         this.direction = command.Direction;
         this.documentNumber = command.DocumentNumber;
         this.documentType = command.DocumentType;
-        this.userId = command.UserId;
     }
 } 
