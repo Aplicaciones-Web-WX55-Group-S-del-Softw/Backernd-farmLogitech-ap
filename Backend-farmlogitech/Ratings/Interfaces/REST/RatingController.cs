@@ -14,6 +14,16 @@ namespace Backend_farmlogitech.Ratings.Interfaces.REST;
 public class RatingController(IRatingCommandService ratingCommandService, IRatingQueryService ratingQueryService)
     : ControllerBase
 {
+    /*
+    private readonly IRatingCommandService ratingCommandService;
+    private readonly IRatingQueryService ratingQueryService;
+
+    public FarmController(IRatingCommandService ratingCommandService, IRatingQueryService ratingQueryService)
+    {
+        this.ratingCommandService = ratingCommandService;
+        this.ratingQueryService = ratingQueryService;
+    }
+
     [HttpPost("createRating")]
     public async Task<ActionResult> CreateRating([FromBody] CreateRatingResource resource)
     {
@@ -58,3 +68,17 @@ public class RatingController(IRatingCommandService ratingCommandService, IRatin
         return Ok(RatingResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 }
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateRating(int id, [FromBody] UpdateRatingResource resource)
+        {
+            var updateRatingCommand = UpdateRatingCommandFromResourceAssembler.ToCommandFromResource(resource);
+            updateRatingCommand = updateRatingCommand with { Id = id };
+            var result = await ratingCommandService.Handle(updateRatingCommand);
+            return Ok(RatingResourceFromEntityAssembler.ToResourceFromEntity(result));
+        }
+        
+        */
+        
+    }
+    
+

@@ -23,11 +23,21 @@ public class FarmRepository : BaseRepository<Farm>, IFarmRepository
         return await Context.Set<Farm>().ToListAsync();
     }
 
-    public async  Task<Farm> FindByIdx(int id)
+    public Task<Farm?> FindByUserId(int userId)
     {
-        
-        return await Context.Set<Farm>().FirstOrDefaultAsync(f => f.Id == id);
+        return Context.Set<Farm>().FirstOrDefaultAsync(f => Equals(f.UserId, userId));
     }
+    
+    public Task<Farm?> GetFarmById(int id)
+    {
+        return Context.Set<Farm>().FirstOrDefaultAsync(f => Equals(f.Id, id));
+    }
+   
+    public Task<Farm?> GetFarmByUserId(int id)
+    {
+        return Context.Set<Farm>().FirstOrDefaultAsync(f => Equals(f.UserId, id));
+    }
+    
 
    
 }  

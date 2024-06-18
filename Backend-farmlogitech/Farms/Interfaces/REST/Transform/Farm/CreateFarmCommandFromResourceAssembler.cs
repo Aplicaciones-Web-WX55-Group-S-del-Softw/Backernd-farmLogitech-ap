@@ -7,8 +7,9 @@ public static class CreateFarmCommandFromResourceAssembler
 {
     public static CreateFarmCommand ToCommandFromResource(CreateFarmResource resource)
     {
-        return new CreateFarmCommand(resource.Id, resource.FarmName, resource.Location, resource.Type,
-            resource.Infrastructure, resource.Certificate, resource.Product);
+        return new CreateFarmCommand( resource.FarmName, resource.Location, resource.Type,
+            resource.Infrastructure, resource.Certificate, resource.Product, resource.Services, resource.Status,
+            resource.Image, resource.Price, resource.Surface, resource.Highlights );
     }
     
 }
