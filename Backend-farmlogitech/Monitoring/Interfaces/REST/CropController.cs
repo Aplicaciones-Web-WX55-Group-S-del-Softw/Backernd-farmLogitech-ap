@@ -40,7 +40,7 @@ public class CropController : ControllerBase
         return Ok(resource);
     }
 
-    [HttpGet("crops/all")]
+    [HttpGet("all")]
     public async Task<ActionResult> GetAllCrops()
     {
         var query = new GetAllCropsQuery();

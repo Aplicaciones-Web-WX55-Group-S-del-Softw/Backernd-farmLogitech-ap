@@ -26,7 +26,6 @@ public class Subscription
 
     public Subscription(CreateSubscriptionCommand command)
     {
-        this.Id= command.Id;
         this.Price = command.Price;
         this.Description = command.Description;
         this.Paid = command.Paid;

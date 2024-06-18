@@ -45,11 +45,11 @@ public class SubscriptionController : ControllerBase
     {
         var getSubscriptionByProfileIdQuery = new GetSubscriptionByProfileIdQuery(profileId);
         var result = await _subscriptionQueryService.Handle(getSubscriptionByProfileIdQuery);
-        var resource = SubscriptionResourceFromEntityAssembler.ToResource(result);
+        var resource = SubscriptionResourceFromEntityAssembler.ToResource(result ?? throw new InvalidOperationException());
         return Ok(resource);
     }
     
-    [HttpGet]
+    [HttpGet("all")]
     public async Task<ActionResult> GetAllSubscriptions()
     {
         var getAllSubscriptionsQuery = new GetAllSubscriptionsQuery();
