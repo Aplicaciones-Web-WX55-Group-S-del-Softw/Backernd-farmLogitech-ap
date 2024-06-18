@@ -33,4 +33,5 @@ public class AuthenticationController(IUserCommandService userCommandService) : 
                 authenticatedUser.token);
         return Ok(authenticatedUserResource);
     }
+    
 }

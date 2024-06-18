@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using System.Text.Json.Serialization;
 using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
 
@@ -32,4 +33,30 @@ public class User(string username, string passwordHash, Role role)
         Role = role;
         return this;
     }
+    
+    
+    public static class ExtensionMethods
+    {
+        /// <summary>
+        /// User ID
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static string getUserId( ClaimsPrincipal user)
+        {
+            if (!user.Identity.IsAuthenticated)
+                return null;
+
+            ClaimsPrincipal currentUser = user;
+            return currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
 }

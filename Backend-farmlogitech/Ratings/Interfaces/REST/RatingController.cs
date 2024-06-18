@@ -13,6 +13,7 @@ namespace Backend_farmlogitech.Ratings.Interfaces.REST;
 [Produces(MediaTypeNames.Application.Json)]
 public class FarmController : ControllerBase
 {
+    /*
     private readonly IRatingCommandService ratingCommandService;
     private readonly IRatingQueryService ratingQueryService;
 
@@ -64,6 +65,8 @@ public class FarmController : ControllerBase
             var result = await ratingCommandService.Handle(updateRatingCommand);
             return Ok(RatingResourceFromEntityAssembler.ToResourceFromEntity(result));
         }
+        
+        */
         
     }
     

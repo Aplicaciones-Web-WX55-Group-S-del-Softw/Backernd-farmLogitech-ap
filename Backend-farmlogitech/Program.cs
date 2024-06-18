@@ -53,6 +53,31 @@ builder.Services.AddControllers(
     {
         options.Conventions.Add(new KebabCaseRoutingNamingConvention());   
     });
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<AppDbContext>(
+    options =>
+    {
+        if (connectionString != null)
+            if (builder.Environment.IsDevelopment())
+                options.UseMySQL(connectionString)
+                    .LogTo(Console.WriteLine, LogLevel.Information)
+                    .EnableSensitiveDataLogging()
+                    .EnableDetailedErrors();
+            else if (builder.Environment.IsProduction())
+                options.UseMySQL(connectionString)
+                    .LogTo(Console.WriteLine, LogLevel.Error)
+                    .EnableDetailedErrors();    
+    });
+
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+
+
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(
@@ -109,28 +134,6 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader());
 });
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-// Configure Database Context and Logging Levels
-builder.Services.AddDbContext<AppDbContext>(
-    options =>
-    {
-        if (connectionString != null)
-            if (builder.Environment.IsDevelopment())
-                options.UseMySQL(connectionString)
-                    .LogTo(Console.WriteLine, LogLevel.Information)
-                    .EnableSensitiveDataLogging()
-                    .EnableDetailedErrors();
-            else if (builder.Environment.IsProduction())
-                options.UseMySQL(connectionString)
-                    .LogTo(Console.WriteLine, LogLevel.Information)
-                    .EnableSensitiveDataLogging()
-                    .EnableDetailedErrors();
-    });
-
-builder.Services.AddRouting(options => options.LowercaseUrls = true);
-builder.Services.AddHttpContextAccessor(); // Add this line
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IFarmRepository, FarmRepository>();
@@ -162,6 +165,10 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IHashingService, HashingService>();
 builder.Services.AddScoped<IIamContextFacade, IamContextFacade>();
 
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Verify Database Objects are created
@@ -178,6 +185,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseCors("AllowAllPolicy");
 
