@@ -3,6 +3,7 @@
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="farmlogitech-aw@localhost" uuid="02f19fc4-15e0-443e-97ce-abada7cbd7c1">
     <data-source source="LOCAL" name="farmi@localhost" uuid="7c00a339-2a13-42c4-95bf-49355702a79d">
+    <data-source source="LOCAL" name="farmlogitech-aw@localhost" uuid="5cca46b7-05ca-41fe-8499-f13d95d1f2f7">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

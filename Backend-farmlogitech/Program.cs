@@ -48,6 +48,11 @@ using Backend_farmlogitech.Monitoring.Domain.Services.Tasks;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Subscriptions.Application.Internal.CommandServices;
+using Backend_farmlogitech.Subscriptions.Application.Internal.QueryServices;
+using Backend_farmlogitech.Subscriptions.Domain.Repositories;
+using Backend_farmlogitech.Subscriptions.Domain.Services;
+using Backend_farmlogitech.Subscriptions.Infrastructure.Persistance.EFC.Repositories;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Messages;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Tasks;
 using Backend_farmlogitech.Profiles.Application.Internal.CommandServices;
@@ -207,6 +212,10 @@ builder.Services.AddScoped<IIncomeQueryService, IncomeQueryService>();
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IExpenseCommandService, ExpenseCommandService>();
 builder.Services.AddScoped<IExpenseQueryService, ExpenseQueryService>();
+
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
+builder.Services.AddScoped<ISubscriptionCommandService, SubscriptionCommandService>();
+builder.Services.AddScoped<ISubscriptionQueryService, SubscriptionQueryService>();
 
 var app = builder.Build();
 
