@@ -1,22 +1,29 @@
+using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Commands.Crops;
 
 namespace Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
 
 public class Crop
 {
-    protected Crop(int id, string type, string plantingDate, int quantity, int shedId)
+    protected Crop(int id, string type, string plantingDate, int quantity, int shedId, int farmId, int userId)
     {
         Id = id;
         Type = type;
         PlantingDate = plantingDate;
         Quantity = quantity;
         ShedId = shedId;
+        FarmId = farmId; 
+        UserId = userId;
     }
 
     private string _type;
     private string _plantingDate;
     private int _quantity;
     private int _shedId;
+    
+    
+    public int FarmId { get; set; }
+    public int UserId { get; set; }
 
     public int Id { get; private set; }
 
@@ -75,6 +82,8 @@ public class Crop
         this.PlantingDate = command.PlantingDate;
         this.Quantity = command.Quantity;
         this.ShedId = command.ShedId;
+        this.FarmId = command.FarmId;
+        this.UserId = command.UserId;
     }
 
     public void Update(UpdateCropCommand command)
@@ -83,6 +92,8 @@ public class Crop
         this.Type = command.Type;
         this.Quantity = command.Quantity;
         this.ShedId = command.ShedId;
+        this.FarmId = command.FarmId;
+        this.UserId = command.UserId;
     }
     
     public void Delete(DeleteCropCommand command)
