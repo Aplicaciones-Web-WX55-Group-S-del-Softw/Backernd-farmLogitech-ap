@@ -33,6 +33,11 @@ public class FarmRepository : BaseRepository<Farm>, IFarmRepository
         return Context.Set<Farm>().FirstOrDefaultAsync(f => Equals(f.Id, id));
     }
    
+    public Task<Farm?> GetFarmByUserId(int id)
+    {
+        return Context.Set<Farm>().FirstOrDefaultAsync(f => Equals(f.UserId, id));
+    }
+    
 
    
 }  

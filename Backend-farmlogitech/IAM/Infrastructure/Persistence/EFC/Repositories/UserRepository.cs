@@ -17,4 +17,9 @@ public class UserRepository(AppDbContext context) : BaseRepository<User>(context
     {
         return Context.Set<User>().Any(user => user.Username.Equals(username));
     }
+
+    public Task<User?> GetUserRole(int id)
+    {
+        return Context.Set<User>().FirstOrDefaultAsync(user => user.Id == id);
+    }
 }
