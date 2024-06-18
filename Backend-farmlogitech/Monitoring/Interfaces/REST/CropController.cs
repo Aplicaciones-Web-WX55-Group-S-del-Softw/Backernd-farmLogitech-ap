@@ -10,7 +10,6 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces("application/json")]
-[Authorize]
 
 public class CropController : ControllerBase
 {

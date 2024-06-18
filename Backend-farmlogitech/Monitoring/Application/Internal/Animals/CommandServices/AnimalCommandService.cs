@@ -41,12 +41,16 @@ public class AnimalCommandService : IAnimalCommandService
 
     public async Task<Animal> Handle(DeleteAnimalCommand command)
     {
-        var animalToDelete = await _animalRepository.FindByIdAsync(command.Id);
-        if (animalToDelete == null)
-            throw new Exception("Animal with ID does not exist");
-        await _animalRepository.DeleteAsync(animalToDelete);
+        var animal = await _animalRepository.FindByIdAsync(command.Id);
+        if (animal == null)
+        {
+            throw new Exception($"No animal found with id {command.Id}");
+        }
+
+        animal.Delete(command);
+        await _animalRepository.DeleteAsync(animal);
         await _unitOfWork.CompleteAsync();
-        return animalToDelete;
+        return animal;
     }
 
     public async Task<Animal> Handle(ReadAnimalCommand command)

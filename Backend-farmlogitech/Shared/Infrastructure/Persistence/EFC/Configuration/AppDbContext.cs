@@ -1,8 +1,11 @@
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Model.Aggregates.Expenses;
+using Backend_farmlogitech.DashboardAnalytics.Domain.Model.Aggregates.Incomes;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
 using Backend_farmlogitech.Profiles.Domain.Model.Aggregates;
+using Backend_farmlogitech.Subscriptions.Domain.Model.Aggregates;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -60,6 +63,49 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.PlantingDate);
             builder.Entity<Crop>().Property(f => f.Quantity);
             builder.Entity<Crop>().Property(f => f.ShedId);
+            builder.UseSnakeCaseNamingConvention();
+            
+            builder.Entity<Subscription>().ToTable("Subscriptions");
+            builder.Entity<Subscription>().HasKey(f => f.Id);
+            builder.Entity<Subscription>().Property(f => f.Description);
+            builder.Entity<Subscription>().Property(f => f.Paid);
+            builder.Entity<Subscription>().Property(f => f.Price);
+            builder.Entity<Subscription>().Property(f => f.ProfileId);
+            builder.UseSnakeCaseNamingConvention();
+            
+            //Configuracion de la entidad Income
+            builder.Entity<Income>().ToTable("Incomes");
+            builder.Entity<Income>().HasKey(f => f.Id);
+            builder.Entity<Income>().Property(f => f.Category);
+            builder.Entity<Income>().Property(f => f.Amount);
+            builder.Entity<Income>().Property(f => f.Description);
+            builder.Entity<Income>().Property(f => f.Date);
+            builder.Entity<Income>().Property(f => f.Period);
+            builder.UseSnakeCaseNamingConvention();
+            
+            //Configuracion de la entidad Expense
+            builder.Entity<Expense>().ToTable("Expenses");
+            builder.Entity<Expense>().HasKey(f => f.Id);
+            builder.Entity<Expense>().Property(f => f.Category);
+            builder.Entity<Expense>().Property(f => f.Amount);
+            builder.Entity<Expense>().Property(f => f.Description);
+            builder.Entity<Expense>().Property(f => f.Date);
+            builder.Entity<Expense>().Property(f => f.Period);
+            builder.UseSnakeCaseNamingConvention();
+            
+            // Configuration of the Task entity
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().ToTable("Tasks");
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().HasKey(f => f.Id);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.CollaboratorId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.FarmerId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.Description);
+            builder.UseSnakeCaseNamingConvention();
+            
+            // Configuration of the Message entity
+            builder.Entity<Message>().ToTable("Messages");
+            builder.Entity<Message>().HasKey(f => f.Id);
+            builder.Entity<Message>().Property(f => f.CollaboratorId);
+            builder.Entity<Message>().Property(f => f.Description);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad profile

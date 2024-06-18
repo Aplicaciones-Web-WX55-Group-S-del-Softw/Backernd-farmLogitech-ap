@@ -7,7 +7,6 @@ public class DeleteCropCommandFromResourceAssembler
 {
     public static DeleteCropCommand ToCommandFromResource(DeleteCropResource resource)
     {
-        return new DeleteCropCommand(resource.Id, resource.Type, resource.PlantingDate, resource.Quantity,
-            resource.ShedId); 
+        return new DeleteCropCommand(resource.Id); 
     }
 }
