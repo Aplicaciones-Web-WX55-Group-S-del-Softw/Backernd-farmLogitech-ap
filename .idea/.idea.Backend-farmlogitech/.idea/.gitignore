@@ -2,8 +2,6 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/modules.xml
-/contentModel.xml
 /projectSettingsUpdater.xml
 /.idea.Backend-farmlogitech.iml
 # Editor-based HTTP Client requests

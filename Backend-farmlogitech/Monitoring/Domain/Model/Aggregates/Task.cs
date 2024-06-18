@@ -1,4 +1,4 @@
-using Backend_farmlogitech.Monitoring.Domain.Model.Commands.Task;
+using Backend_farmlogitech.Monitoring.Domain.Model.Commands.Tasks;
 
 namespace Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
 

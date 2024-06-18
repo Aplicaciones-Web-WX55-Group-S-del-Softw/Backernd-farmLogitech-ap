@@ -1,8 +1,6 @@
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
-using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
-using Backend_farmlogitech.Profiles.Domain.Model.Aggregates;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -60,6 +58,21 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.PlantingDate);
             builder.Entity<Crop>().Property(f => f.Quantity);
             builder.Entity<Crop>().Property(f => f.ShedId);
+            builder.UseSnakeCaseNamingConvention();
+            
+            // Configuration of the Task entity
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().ToTable("Tasks");
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().HasKey(f => f.Id);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.CollaboratorId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.FarmerId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.Description);
+            builder.UseSnakeCaseNamingConvention();
+            
+            // Configuration of the Message entity
+            builder.Entity<Message>().ToTable("Messages");
+            builder.Entity<Message>().HasKey(f => f.Id);
+            builder.Entity<Message>().Property(f => f.CollaboratorId);
+            builder.Entity<Message>().Property(f => f.Description);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad profile

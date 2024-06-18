@@ -23,17 +23,27 @@ using Backend_farmlogitech.Monitoring.Application.Internal.Animals.CommandServic
 using Backend_farmlogitech.Monitoring.Application.Internal.Animals.QueryServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Crops.CommandServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Crops.QueryServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Messages.CommandServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Messages.QueryServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Sheds.CommandServices;
 using Backend_farmlogitech.Monitoring.Application.Internal.Sheds.QueryServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Tasks.CommandServices;
+using Backend_farmlogitech.Monitoring.Application.Internal.Tasks.QueryServices;
+using Backend_farmlogitech.Monitoring.Domain.Repositories;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Sheds;
+using Backend_farmlogitech.Monitoring.Domain.Repositories.Tasks;
 using Backend_farmlogitech.Monitoring.Domain.Services.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Services.Crops;
+using Backend_farmlogitech.Monitoring.Domain.Services.Messages;
 using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
+using Backend_farmlogitech.Monitoring.Domain.Services.Tasks;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Animals;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Crops;
 using Backend_farmlogitech.Monitoring.Infrastructure.Persistance.EFC.Repositories.Sheds;
+using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Messages;
+using Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Repositories.Tasks;
 using Backend_farmlogitech.Profiles.Application.Internal.CommandServices;
 using Backend_farmlogitech.Profiles.Application.Internal.QueryServices;
 using Backend_farmlogitech.Profiles.Domain.Repositories;
@@ -53,9 +63,16 @@ builder.Services.AddControllers(
     {
         options.Conventions.Add(new KebabCaseRoutingNamingConvention());   
     });
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+
+
+
+// Configure Database Context and Logging Levels
 builder.Services.AddDbContext<AppDbContext>(
     options =>
     {
@@ -151,6 +168,14 @@ builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IAnimalCommandService, AnimalCommandService>();
 builder.Services.AddScoped<IAnimalQueryService, AnimalQueryService>();
 
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskCommandService, TaskCommandService>();
+builder.Services.AddScoped<ITaskQueryService, TaskQueryService>();
+
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+builder.Services.AddScoped<IMessageCommandService, MessageCommandService>();
+builder.Services.AddScoped<IMessageQueryService, MessageQueryService>();
+
 builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
@@ -179,7 +204,7 @@ using (var scope = app.Services.CreateScope())
     context.Database.EnsureCreated();
 }
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
