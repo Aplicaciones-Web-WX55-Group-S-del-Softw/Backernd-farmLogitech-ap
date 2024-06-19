@@ -12,22 +12,7 @@
     <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Application/Internal/CommandServices/FarmCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Application/Internal/CommandServices/FarmCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Model/Aggregates/Farm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Model/Aggregates/Farm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Model/Commands/Farm/CreateFarmCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Model/Commands/Farm/CreateFarmCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Repositories/IFarmRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Repositories/IFarmRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Services/IFarmCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Domain/Services/IFarmCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Infrastructure/Persistence/EFC/Repositories/FarmRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Infrastructure/Persistence/EFC/Repositories/FarmRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/FarmController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/FarmController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Resources/Farm/CreateFarmResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Resources/Farm/CreateFarmResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Resources/Farm/FarmResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Resources/Farm/FarmResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Transform/Farm/CreateFarmCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Transform/Farm/CreateFarmCommandFromResourceAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Transform/Farm/FarmResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Farms/Interfaces/REST/Transform/Farm/FarmResourceFromEntityAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/IAM/Domain/Model/Aggregates/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/IAM/Domain/Model/Aggregates/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/IAM/Infrastructure/Tokens/JWT/Services/TokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/IAM/Infrastructure/Tokens/JWT/Services/TokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/IAM/Interfaces/REST/AuthenticationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/IAM/Interfaces/REST/AuthenticationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Ratings/Interfaces/REST/RatingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Ratings/Interfaces/REST/RatingController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +72,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;profiles&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;monitoring&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,7 +92,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Backend-farmlogitech: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Backend-farmlogitech: http">
     <configuration name="Backend-farmlogitech: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Backend-farmlogitech/Backend-farmlogitech.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -253,6 +238,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="feat(monitoring): Fixed validation and http delete and put" />
