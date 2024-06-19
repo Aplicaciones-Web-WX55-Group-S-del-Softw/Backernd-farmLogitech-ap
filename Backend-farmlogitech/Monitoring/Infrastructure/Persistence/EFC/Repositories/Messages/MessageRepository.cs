@@ -21,6 +21,11 @@ namespace Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Reposit
         {
             return await Context.Set<Message>().ToListAsync();
         }
+        
+        public async Task<Message> FindByIdAndUserId(int id, int userId)
+        {
+            return await Context.Set<Message>().FirstOrDefaultAsync(m => m.Id == id && m.CollaboratorId == userId);
+        }
 
         public async Task<Message> FindByIdx(int id)
         {

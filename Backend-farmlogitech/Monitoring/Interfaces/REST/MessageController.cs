@@ -64,5 +64,18 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
             var result = await messageCommandService.Handle(updateMessageCommand);
             return Ok(MessageResourceFromEntityAssembler.ToResourceFromEntity(result));
         }
+        
+        [HttpGet("{id}/user/{userId}")]
+        public async Task<ActionResult> GetMessageByIdAndUserId(int id, int userId)
+        {
+            var getMessageByIdAndUserIdQuery = new GetMessageByIdAndUserIdQuery(id, userId);
+            var result = await messageQueryService.Handle(getMessageByIdAndUserIdQuery);
+            if (result == null)
+            {
+                return NotFound($"No message found with ID {id} for user with ID {userId}");
+            }
+            var resource = MessageResourceFromEntityAssembler.ToResourceFromEntity(result);
+            return Ok(resource);
+        }
     }
 }

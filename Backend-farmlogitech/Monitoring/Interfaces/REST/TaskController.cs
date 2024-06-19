@@ -47,15 +47,6 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
             return Ok(resources);
         }
 
-        [HttpGet("collaborator/{collaboratorId}/farmer/{farmerId}")]
-        public async Task<ActionResult> GetAllTasksByCollaboratorIdAndFarmerId(int collaboratorId, int farmerId)
-        {
-            var getAllTasksByCollaboratorIdAndFarmerIdQuery = new GetAllTasksByCollaboratorIdAndFarmerId(collaboratorId, farmerId);
-            var result = await taskQueryService.Handle(getAllTasksByCollaboratorIdAndFarmerIdQuery);
-            var resources = result.Select(TaskResourceFromEntityAssembler.ToResourceFromEntity);
-            return Ok(resources);
-        }
-
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateTask(int id, [FromBody] UpdateTaskResource resource)
         {

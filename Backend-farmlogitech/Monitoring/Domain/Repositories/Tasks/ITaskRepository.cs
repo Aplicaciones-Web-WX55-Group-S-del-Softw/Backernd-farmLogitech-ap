@@ -7,7 +7,5 @@ public interface ITaskRepository: IBaseRepository<AggregatesTask>
 {
     Task<IEnumerable<AggregatesTask>> FindByCollaboratorIdAsync(int collaboratorId);
     
-    Task<IEnumerable<AggregatesTask>> FindByCollaboratorIdAndFarmerIdAsync(int collaboratorId, int farmerId);
-    
     Task<AggregatesTask> FindByIdx(int id);
 }

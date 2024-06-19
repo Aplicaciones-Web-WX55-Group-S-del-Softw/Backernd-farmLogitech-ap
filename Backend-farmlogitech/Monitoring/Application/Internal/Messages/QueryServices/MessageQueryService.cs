@@ -16,6 +16,11 @@ public class MessageQueryService (IMessageRepository messageRepository): IMessag
     {
         return await messageRepository.FindByCollaboratorId(query.CollaboratorId);
     }
+    
+    public async Task<Message> Handle(GetMessageByIdAndUserIdQuery query)
+    {
+        return await messageRepository.FindByIdAndUserId(query.Id, query.UserId);
+    }
 
     public async Task<IEnumerable<Message>> Handle(GetAllMessageQuery query)
     {

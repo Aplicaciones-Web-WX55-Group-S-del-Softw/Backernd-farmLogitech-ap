@@ -8,5 +8,4 @@ public interface ITaskQueryService
     Task<AggregatesTask> Handle(GetTaskByIdQuery query);
     Task<IEnumerable<AggregatesTask>> Handle(GetAllTasksByCollaboratorId query);
     
-    Task<IEnumerable<AggregatesTask>> Handle(GetAllTasksByCollaboratorIdAndFarmerId query);
 }
