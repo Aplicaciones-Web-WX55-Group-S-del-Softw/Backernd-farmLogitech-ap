@@ -8,6 +8,6 @@ public static class UpdateFarmCommandFromResourceAssembler
     public static UpdateFarmCommand ToCommandFromResource(UpdateFarmResource resource)
     {
         return new UpdateFarmCommand(resource.Id, resource.FarmName, resource.Location, resource.Type,
-            resource.Infrastructure, resource.Certificate, resource.Product);
+            resource.Infrastructure, resource.Certificate, resource.Product, resource.Services, resource.Status, resource.Image, resource.Price, resource.Surface, resource.Highlights);
     }
 }

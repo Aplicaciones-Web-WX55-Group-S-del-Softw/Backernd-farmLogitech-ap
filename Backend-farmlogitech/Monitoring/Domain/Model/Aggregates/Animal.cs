@@ -11,6 +11,12 @@ public class Animal
     private string _healthState;
     private int _shedId;
 
+    public int FarmId { get; set; }
+    public int UserId { get; set; }
+
+
+    
+
     public string Name
     {
         get { return _name; }
@@ -75,6 +81,9 @@ public class Animal
             _shedId = value;
         }
     }
+    
+    
+    
     protected Animal()
     {
     }
@@ -86,6 +95,8 @@ public class Animal
         this.Location = command.Location;
         this.HealthState = command.HealthState;
         this.ShedId = command.ShedId; 
+        this.FarmId = command.FarmId;
+        this.UserId = command.UserId;
     }
 
     public Animal(string name)
@@ -101,6 +112,8 @@ public class Animal
         this.Location = command.Location;
         this.HealthState = command.HealthState;
         this.ShedId = command.ShedId;
+        this.FarmId = command.FarmId;
+        this.UserId = command.UserId;
     }
     
     public void Delete(DeleteAnimalCommand command)

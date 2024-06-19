@@ -55,6 +55,8 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Animal>().Property(f => f.Location);
             builder.Entity<Animal>().Property(f => f.HealthState);
             builder.Entity<Animal>().Property(f => f.ShedId);
+            builder.Entity<Animal>().Property(f => f.FarmId);
+            builder.Entity<Animal>().Property(f => f.UserId);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad Crop
@@ -64,6 +66,8 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.PlantingDate);
             builder.Entity<Crop>().Property(f => f.Quantity);
             builder.Entity<Crop>().Property(f => f.ShedId);
+            builder.Entity<Crop>().Property(f => f.FarmId);
+            builder.Entity<Crop>().Property(f => f.UserId);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad Rating

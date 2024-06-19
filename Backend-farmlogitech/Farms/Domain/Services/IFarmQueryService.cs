@@ -10,6 +10,8 @@ public interface IFarmQueryService
     Task<IEnumerable<Farm>> Handle(GetFarmByLocationQuery query);
     
    Task<IEnumerable<Farm>> Handle(GetAllFarmQuery query); /*List*/
+   
+   Task<Farm?> Handle(GetFarmByUserIdQuery query);
  
     
 }
