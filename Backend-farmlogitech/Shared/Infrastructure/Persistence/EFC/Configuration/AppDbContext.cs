@@ -67,6 +67,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             
             builder.Entity<Subscription>().ToTable("Subscriptions");
             builder.Entity<Subscription>().HasKey(f => f.Id);
+            builder.Entity<Subscription>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Subscription>().Property(f => f.Description);
             builder.Entity<Subscription>().Property(f => f.Paid);
             builder.Entity<Subscription>().Property(f => f.Price);
