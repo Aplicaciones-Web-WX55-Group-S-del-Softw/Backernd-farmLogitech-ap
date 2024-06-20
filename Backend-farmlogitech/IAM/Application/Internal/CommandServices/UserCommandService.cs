@@ -46,7 +46,7 @@ public class UserCommandService(
             throw new Exception("Invalid username or password");
     
         // Set the global user ID
-        User.GlobalVariables.UserId = user.Id;
+        User.UserAuthenticate.UserId = user.Id;
 
         
         

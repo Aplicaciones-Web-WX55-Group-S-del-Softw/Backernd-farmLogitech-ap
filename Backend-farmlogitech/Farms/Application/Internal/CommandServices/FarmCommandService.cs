@@ -22,11 +22,10 @@ public class FarmCommandService : IFarmCommandService
         this.farmRepository = farmRepository;
         this.userRepository= userRepository;
     }
- 
     
     public async Task<Farm> Handle(CreateFarmCommand command)
     {
-        var userGlobal = User.GlobalVariables.UserId;
+        var userGlobal = User.UserAuthenticate.UserId;
         var userRole = await userRepository.GetUserRole(userGlobal);
         if (userRole.Role != Role.FARMER)
         {
@@ -46,18 +45,20 @@ public class FarmCommandService : IFarmCommandService
         await unitOfWork.CompleteAsync();
         return farmNew;
     }
-
-
+    
     public async Task<Farm> Handle(UpdateFarmCommand command)
     {
         
-        var farmToUpdate = await farmRepository.FindByIdAsync(command.Id);
+        var userGlobal = User.UserAuthenticate.UserId; //valid my farm
+        var farmToUpdate = await farmRepository.FindByIdAsync(userGlobal);
         if (farmToUpdate == null)
             throw new Exception("Farm with ID does not exist");
         farmToUpdate.Update(command);
         await unitOfWork.CompleteAsync();
         return farmToUpdate;
         
-        return null;
     }
+    
+    
+    
 }

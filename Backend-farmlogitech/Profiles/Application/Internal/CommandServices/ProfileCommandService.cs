@@ -29,7 +29,7 @@ namespace Backend_farmlogitech.Profiles.Application.Internal.CommandServices
 
         public async Task<Profile> Handle(CreateProfileCommand command)
         {
-            var userId = User.GlobalVariables.UserId;
+            var userId = User.UserAuthenticate.UserId;
 
             // Get the role of the user
             var userRole = await userRepository.GetUserRole(userId);

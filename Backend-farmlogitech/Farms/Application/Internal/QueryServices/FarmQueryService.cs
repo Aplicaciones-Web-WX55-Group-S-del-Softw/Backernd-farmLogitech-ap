@@ -2,6 +2,7 @@ using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 using Backend_farmlogitech.Farms.Domain.Model.Queries.Farm;
 using Backend_farmlogitech.Farms.Domain.Repositories;
 using Backend_farmlogitech.Farms.Domain.Services;
+using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 
 namespace Backend_farmlogitech.Farms.Application.Internal.QueryServices;
 
@@ -26,6 +27,7 @@ public class FarmQueryService(IFarmRepository farmRepository) : IFarmQueryServic
 
     public async Task<Farm?> Handle(GetFarmByUserIdQuery query)
     {
-        return await farmRepository.FindByUserId(query.userId); 
+        var userAuth= User.UserAuthenticate.UserId;
+        return await farmRepository.FindByUserId(userAuth); 
     }
 }

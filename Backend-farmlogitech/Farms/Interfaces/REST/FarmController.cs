@@ -56,10 +56,10 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         return Ok(resources);
     }
     
-    [HttpGet("profiles/{profileid}")]
-    public async Task<ActionResult> GetFarmByProfileId(int profileid)
+    [HttpGet("me")]
+    public async Task<ActionResult> GetFarmByProfileId()
     {
-        var getAllFarmByLocationQuery = new GetFarmByUserIdQuery(profileid);
+        var getAllFarmByLocationQuery = new GetFarmByUserIdQuery();
         var result = await farmQueryService.Handle(getAllFarmByLocationQuery);
         if (result == null)
         {
@@ -78,7 +78,7 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         return Ok(resources);
     }
     
-    [HttpPut("{id}")]
+    [HttpPut]
     public async Task<ActionResult> UpdateFarm( [FromBody] UpdateFarmResource resource)
     {
         var updateFarmCommand = UpdateFarmCommandFromResourceAssembler.ToCommandFromResource(resource);
