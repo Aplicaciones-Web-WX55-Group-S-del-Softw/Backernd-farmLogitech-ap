@@ -119,6 +119,18 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Profile>().Property(p => p.userId);
             builder.UseSnakeCaseNamingConvention();
             
+            
+            // Configuración de la entidad User
+            builder.Entity<Employee>().ToTable("Employees");
+            builder.Entity<Employee>().HasKey(e => e.Id);
+            builder.Entity<Employee>().Property(e => e.FarmId);
+            builder.Entity<Employee>().Property(e => e.Name);
+            builder.Entity<Employee>().Property(e => e.Phone);
+            builder.Entity<Employee>().Property(e => e.Username);
+            builder.Entity<Employee>().Property(e => e.Password);
+            builder.Entity<Employee>().Property(e => e.Position);
+            builder.UseSnakeCaseNamingConvention();
+            
             // IAM Context
             builder.Entity<User>().HasKey(u => u.Id);
             builder.Entity<User>().Property(u => u.Id).IsRequired().ValueGeneratedOnAdd();
