@@ -7,5 +7,6 @@ public interface IFarmCommandService
 {
  Task<Farm> Handle(CreateFarmCommand command);
 
+ Task<Farm> Handle(UpdateFarmCommand command); 
 
 }

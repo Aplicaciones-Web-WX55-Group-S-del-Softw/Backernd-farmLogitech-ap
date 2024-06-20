@@ -4,6 +4,7 @@ using Backend_farmlogitech.DashboardAnalytics.Domain.Model.Aggregates.Incomes;
 using Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
+using Backend_farmlogitech.Ratings.Domain.Model.Aggregates;
 using Backend_farmlogitech.Profiles.Domain.Model.Aggregates;
 using Backend_farmlogitech.Subscriptions.Domain.Model.Aggregates;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
@@ -26,8 +27,8 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
-                //BORRAR TODAS LAS TABLAS ANTES DE CREAR NUEVAS, PARA QUE SE ACTUALICE
+            
+            //BORRAR TODAS LAS TABLAS ANTES DE CREAR NUEVAS, PARA QUE SE ACTUALICE
             // Configuración de la entidad Farm
             builder.Entity<Farm>().ToTable("Farms");
             builder.Entity<Farm>().HasKey(f => f.Id);
@@ -54,6 +55,8 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Animal>().Property(f => f.Location);
             builder.Entity<Animal>().Property(f => f.HealthState);
             builder.Entity<Animal>().Property(f => f.ShedId);
+            builder.Entity<Animal>().Property(f => f.FarmId);
+            builder.Entity<Animal>().Property(f => f.UserId);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad Crop
@@ -63,8 +66,16 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Crop>().Property(f => f.PlantingDate);
             builder.Entity<Crop>().Property(f => f.Quantity);
             builder.Entity<Crop>().Property(f => f.ShedId);
+            builder.Entity<Crop>().Property(f => f.FarmId);
+            builder.Entity<Crop>().Property(f => f.UserId);
             builder.UseSnakeCaseNamingConvention();
             
+            //Configuracion de la entidad Rating
+            builder.Entity<Rating>().ToTable("Ratings");
+            builder.Entity<Rating>().HasKey(f => f.Id);
+            builder.Entity<Rating>().Property(f => f.StarRating);
+            builder.Entity<Rating>().Property(f => f.UserId);
+            builder.UseSnakeCaseNamingConvention();
             builder.Entity<Subscription>().ToTable("Subscriptions");
             builder.Entity<Subscription>().HasKey(f => f.Id);
             builder.Entity<Subscription>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();

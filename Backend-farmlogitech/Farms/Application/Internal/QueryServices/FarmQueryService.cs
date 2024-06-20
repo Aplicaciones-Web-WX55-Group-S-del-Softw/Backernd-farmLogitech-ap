@@ -23,6 +23,9 @@ public class FarmQueryService(IFarmRepository farmRepository) : IFarmQueryServic
     {
     return await farmRepository.FindByAllFarmAsync();
     }
-    
 
+    public async Task<Farm?> Handle(GetFarmByUserIdQuery query)
+    {
+        return await farmRepository.FindByUserId(query.userId); 
+    }
 }

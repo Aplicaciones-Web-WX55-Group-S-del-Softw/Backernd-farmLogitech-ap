@@ -1,5 +1,6 @@
 using System.Net.Mime;
 using System.Security.Claims;
+using Backend_farmlogitech.Farms.Domain.Model.Commands.Farm;
 using Backend_farmlogitech.Farms.Domain.Model.Queries.Farm;
 using Backend_farmlogitech.Farms.Domain.Services;
 using Backend_farmlogitech.Farms.Interfaces.REST.Resources.Farm;
@@ -8,7 +9,7 @@ using Backend_farmlogitech.IAM.Infrastructure.Pipeline.Middleware.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend_farmlogitech.Farms.Interfaces.REST;
-[Authorize]
+
 [ApiController]
 [Route("/api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
@@ -55,6 +56,19 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         return Ok(resources);
     }
     
+    [HttpGet("profiles/{profileid}")]
+    public async Task<ActionResult> GetFarmByProfileId(int profileid)
+    {
+        var getAllFarmByLocationQuery = new GetFarmByUserIdQuery(profileid);
+        var result = await farmQueryService.Handle(getAllFarmByLocationQuery);
+        if (result == null)
+        {
+            return NotFound(); // Devuelve un 404 si no se encuentra la granja
+        }
+        var resource = FarmResourceFromEntityAssembler.ToResourceFromEntity(result);
+        return Ok(resource);
+    }
+    
     [HttpGet("farm/all")]
     public async Task<ActionResult> GetAllFarms()
     {        
@@ -63,7 +77,7 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         var resources = result.Select(FarmResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
-    /*
+    
     [HttpPut("{id}")]
     public async Task<ActionResult> UpdateFarm( [FromBody] UpdateFarmResource resource)
     {
@@ -72,6 +86,6 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         return Ok(FarmResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 
-    */
+    
   
 }

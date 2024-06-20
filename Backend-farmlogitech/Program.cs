@@ -62,6 +62,11 @@ using Backend_farmlogitech.Profiles.Domain.Services;
 using Backend_farmlogitech.Profiles.Infrastructure.Persistance.EFC.Repositories;
 using Backend_farmlogitech.Profiles.Interfaces.ACL;
 using Backend_farmlogitech.Profiles.Interfaces.ACL.Services;
+using Backend_farmlogitech.Ratings.Application.Internal.CommandServices;
+using Backend_farmlogitech.Ratings.Application.Internal.QueryServices;
+using Backend_farmlogitech.Ratings.Domain.Repositories;
+using Backend_farmlogitech.Ratings.Domain.Services;
+using Backend_farmlogitech.Ratings.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -167,6 +172,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IFarmRepository, FarmRepository>();
 builder.Services.AddScoped<IFarmCommandService, FarmCommandService>();
 builder.Services.AddScoped<IFarmQueryService, FarmQueryService>();
+
 builder.Services.AddScoped<IShedRepository, ShedRepository>();
 builder.Services.AddScoped<IShedCommandService, ShedCommandService>();
 builder.Services.AddScoped<IShedQueryService, ShedQueryService>();
@@ -216,6 +222,10 @@ builder.Services.AddScoped<IExpenseQueryService, ExpenseQueryService>();
 builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<ISubscriptionCommandService, SubscriptionCommandService>();
 builder.Services.AddScoped<ISubscriptionQueryService, SubscriptionQueryService>();
+
+builder.Services.AddScoped<IRatingRepository, RatingRepository>();
+builder.Services.AddScoped<IRatingCommandService, RatingCommandService>();
+builder.Services.AddScoped<IRatingQueryService, RatingQueryService>();
 
 var app = builder.Build();
 
