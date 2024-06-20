@@ -6,7 +6,7 @@ using Backend_farmlogitech.Profiles.Interfaces.REST.Resources;
 using Backend_farmlogitech.Profiles.Interfaces.REST.Transform;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Backend_farmlogitech.Profiles.Interfaces
+namespace Backend_farmlogitech.Profiles.Interfaces.REST
 {
     [ApiController]
     [Route("api/v1/[controller]")]
