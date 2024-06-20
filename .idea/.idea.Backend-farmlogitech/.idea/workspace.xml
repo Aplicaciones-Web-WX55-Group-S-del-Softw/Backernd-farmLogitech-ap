@@ -9,29 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Application/Internal/CommandServices/EmployeeCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Application/Internal/QueryServices/EmployeeQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Model/Aggregates/Employee.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Model/Commands/CreateEmployeeCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Model/Queries/GetEmployeeByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Model/Queries/GetEmployeesByFarmId.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Repositories/IEmployeeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Services/IEmployeeCommandService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Domain/Services/IEmployeeQueryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Infrastructure/Persistance/EFC/Repositories/EmployeeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/REST/EmployeeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/REST/Resources/CreateEmployeeResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/REST/Resources/EmployeeResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/REST/Transform/CreateEmployeeCommandFromResourceAssembler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/REST/Transform/EmployeeResourceFromEntityAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/ProfileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Profiles/Interfaces/REST/ProfileController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(profiles: Added employees" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,10 +39,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5147b10c5a8c4522b56fba0a889139cfc8f908/d3/55a92a14/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c96574d8fb154948b08619f307ab304922920/12/854cd0f6/IServiceCollection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/17194ebcd5c9ec91b768ec9b65ee2651fd54ab25fd22b3f328740d87fd188ee/AuthenticationServiceCollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/usuario/Documents/Development/si730/Backernd-farmLogitech-apc/Backend-farmlogitech/IAM/Interfaces/REST/AuthenticationController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/PROGRA REAL/RiderProjects/Backernd-farmLogitech-ap10/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -253,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718729360780</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat(profiles: Added employees">
+      <option name="closed" value="true" />
+      <created>1718853202224</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1718853202224</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +257,8 @@
     <MESSAGE value="feat(profiles): ProfileCommandService.cs and profilequeryservice updated" />
     <MESSAGE value="feat(feature/profile): Add Role in Authentication" />
     <MESSAGE value="feat: profiles context facade implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: profiles context facade implemented." />
+    <MESSAGE value="feat(profiles: Added employees" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(profiles: Added employees" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
