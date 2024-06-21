@@ -11,6 +11,8 @@ public partial class Profile
     public string documentNumber { get;  set; }
     public string documentType { get;  set; }
     public int userId { get;  set; }
+    
+    public int role { get; set; }
 
     public Profile()
     {

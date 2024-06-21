@@ -7,6 +7,6 @@ public static class UpdateCropCommandFromResourceAssembler
 {
     public static UpdateCropCommand ToCommandFromResource(UpdateCropResource resource)
     {
-        return new UpdateCropCommand(resource.Id, resource.Type, resource.PlantingDate, resource.Quantity, resource.ShedId, resource.FarmId, resource.UserId);
+        return new UpdateCropCommand(resource.Id, resource.Type, resource.PlantingDate, resource.Quantity, resource.ShedId);
     }
 }

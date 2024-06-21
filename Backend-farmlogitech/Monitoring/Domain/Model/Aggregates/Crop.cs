@@ -89,8 +89,6 @@ public class Crop
         this.Type = command.Type;
         this.Quantity = command.Quantity;
         this.ShedId = command.ShedId;
-        this.FarmId = command.FarmId;
-        this.UserId = command.UserId;
     }
     
     public void Delete(DeleteCropCommand command)

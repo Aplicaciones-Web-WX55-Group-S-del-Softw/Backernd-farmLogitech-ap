@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718932487005</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat:  worksplacs">
+      <option name="closed" value="true" />
+      <created>1718932532028</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718932532028</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +296,8 @@
     <MESSAGE value="feat(profiles: Added employees" />
     <MESSAGE value="feat(profiles):  Added Animal, Crops, Incomes and Expenses Validation" />
     <MESSAGE value="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
+    <MESSAGE value="feat:  worksplacs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:  worksplacs" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
