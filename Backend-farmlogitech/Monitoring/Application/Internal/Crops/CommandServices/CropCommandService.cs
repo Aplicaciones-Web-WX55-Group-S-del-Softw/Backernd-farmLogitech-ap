@@ -70,23 +70,73 @@ public class CropCommandService : ICropCommandService
 
     public async Task<Crop> Handle(UpdateCropCommand command)
     {
-        var cropUpdate = await _cropRepository.FindByIdx(command.Id);
+        // Obtiene el ID del usuario autenticado globalmente
+        var userGlobal = User.UserAuthenticate.UserId;
+
+        // Obtiene el rol del usuario a partir del ID del usuario
+        var userRole = await _userRepository.GetUserRole(userGlobal);
+
+        // Verifica si el rol del usuario no es FARMER o FARMWORKER. Si no lo es, lanza una excepción
+        if (userRole == null || (userRole.Role != Role.FARMER && userRole.Role != Role.FARMWORKER))
+        {
+            throw new Exception("Only users with role FARMER or FARMWORKER can update a crop");
+        }
+
+        // Verifica si el cultivo existe
+        var cropUpdate = await _cropRepository.FindByIdAsync(command.Id);
         if (cropUpdate == null)
-            throw new Exception("Crop with ID does not exist");
+        {
+            throw new Exception($"Crop with ID {command.Id} does not exist");
+        }
+
+        // Verifica si el cultivo pertenece a la misma granja que el usuario
+        var farm = await _farmRepository.GetFarmByUserId(userGlobal);
+        if (farm == null || cropUpdate.FarmId != farm.Id)
+        {
+            throw new Exception("User does not have permission to update this crop");
+        }
+
+        // Actualiza el cultivo
         cropUpdate.Update(command);
         await _unitOfWork.CompleteAsync();
         return cropUpdate;
     }
 
+
     public async Task<Crop> Handle(DeleteCropCommand command)
     {
-        var cropToDelete = await _cropRepository.FindByIdx(command.Id);
+        // Obtiene el ID del usuario autenticado globalmente
+        var userGlobal = User.UserAuthenticate.UserId;
+
+        // Obtiene el rol del usuario a partir del ID del usuario
+        var userRole = await _userRepository.GetUserRole(userGlobal);
+
+        // Verifica si el rol del usuario no es FARMER o FARMWORKER. Si no lo es, lanza una excepción
+        if (userRole == null || (userRole.Role != Role.FARMER && userRole.Role != Role.FARMWORKER))
+        {
+            throw new Exception("Only users with role FARMER or FARMWORKER can delete a crop");
+        }
+
+        // Verifica si el cultivo existe
+        var cropToDelete = await _cropRepository.FindByIdAsync(command.Id);
         if (cropToDelete == null)
-            throw new Exception("Crop with ID does not exist");
+        {
+            throw new Exception($"Crop with ID {command.Id} does not exist");
+        }
+
+        // Verifica si el cultivo pertenece a la misma granja que el usuario
+        var farm = await _farmRepository.GetFarmByUserId(userGlobal);
+        if (farm == null || cropToDelete.FarmId != farm.Id)
+        {
+            throw new Exception("User does not have permission to delete this crop");
+        }
+
+        // Elimina el cultivo
         await _cropRepository.DeleteAsync(cropToDelete);
         await _unitOfWork.CompleteAsync();
         return cropToDelete;
     }
+
 
     /*public async Task<Crop> Handle(ReadCropCommand command)
     {

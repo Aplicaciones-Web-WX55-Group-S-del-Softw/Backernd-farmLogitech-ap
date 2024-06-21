@@ -113,6 +113,5 @@ public class Expense
         this.Description = command.Description;
         this.Amount = command.Amount;
         this.Date = command.Date;
-        this.FarmId = command.FarmId;
     }
 }

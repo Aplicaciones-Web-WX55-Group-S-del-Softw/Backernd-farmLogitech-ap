@@ -69,27 +69,73 @@ public class AnimalCommandService : IAnimalCommandService
 
     public async Task<Animal> Handle(UpdateAnimalCommand command)
     {
-        var animalupdate = await _animalRepository.FindByIdAsync(command.Id);
-        if (animalupdate == null)
-            throw new Exception("Animal with ID does not exist");
-        animalupdate.Update(command);
+        // Obtiene el ID del usuario autenticado globalmente
+        var userGlobal = User.UserAuthenticate.UserId;
+
+        // Obtiene el rol del usuario a partir del ID del usuario
+        var userRole = await _userRepository.GetUserRole(userGlobal);
+
+        // Verifica si el rol del usuario no es FARMER o FARMWORKER. Si no lo es, lanza una excepción
+        if (userRole == null || (userRole.Role != Role.FARMER && userRole.Role != Role.FARMWORKER))
+        {
+            throw new Exception("Only users with role FARMER or FARMWORKER can update an animal");
+        }
+
+        // Verifica si el animal existe
+        var animal = await _animalRepository.FindByIdAsync(command.Id);
+        if (animal == null)
+        {
+            throw new Exception($"Animal with ID {command.Id} does not exist");
+        }
+
+        // Verifica si el animal pertenece a la misma granja que el usuario
+        var farm = await _farmRepository.GetFarmByUserId(userGlobal);
+        if (farm == null || animal.FarmId != farm.Id)
+        {
+            throw new Exception("User does not have permission to update this animal");
+        }
+
+        // Actualiza el animal
+        animal.Update(command);
         await _unitOfWork.CompleteAsync();
-        return animalupdate;
+        return animal;
     }
+
 
     public async Task<Animal> Handle(DeleteAnimalCommand command)
     {
+        // Obtiene el ID del usuario autenticado globalmente
+        var userGlobal = User.UserAuthenticate.UserId;
+
+        // Obtiene el rol del usuario a partir del ID del usuario
+        var userRole = await _userRepository.GetUserRole(userGlobal);
+
+        // Verifica si el rol del usuario no es FARMER o FARMWORKER. Si no lo es, lanza una excepción
+        if (userRole == null || (userRole.Role != Role.FARMER && userRole.Role != Role.FARMWORKER))
+        {
+            throw new Exception("Only users with role FARMER or FARMWORKER can delete an animal");
+        }
+
+        // Verifica si el animal existe
         var animal = await _animalRepository.FindByIdAsync(command.Id);
         if (animal == null)
         {
             throw new Exception($"No animal found with id {command.Id}");
         }
 
-        animal.Delete(command);
+        // Verifica si el animal pertenece a la misma granja que el usuario
+        var farm = await _farmRepository.GetFarmByUserId(userGlobal);
+        if (farm == null || animal.FarmId != farm.Id)
+        {
+            throw new Exception("User does not have permission to delete this animal");
+        }
+
+        // Elimina el animal
         await _animalRepository.DeleteAsync(animal);
         await _unitOfWork.CompleteAsync();
         return animal;
     }
+
 
     /*public async Task<Animal> Handle(ReadAnimalCommand command)
     {

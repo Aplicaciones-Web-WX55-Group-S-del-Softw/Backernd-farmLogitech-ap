@@ -39,13 +39,7 @@ public class ShedCommandService(IUnitOfWork unitOfWork,IShedRepository shedRepos
 
         // Obtiene el ID de la granja
         var farmId = farm.GetId();
-
-        // Verifica si un cultivo con el ID ya existe
-        var existingShed = await shedRepository.FindShedById(command.Id);
-        if (existingShed != null)
-        {
-            throw new Exception("Shed with ID already exists");
-        }
+        
 
         // Crea un nuevo cultivo con el comando proporcionado y asigna el FarmId y UserId
         var ShedNew = new Shed(command)

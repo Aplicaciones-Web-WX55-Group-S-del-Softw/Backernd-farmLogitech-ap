@@ -59,8 +59,6 @@ public class Shed
 
     public Shed(CreateShedCommand command)
     {
-        this.Id = command.Id;
-        this.FarmId = command.FarmId;
         this.Location = command.Location;
         this.Type = command.Type;
     }

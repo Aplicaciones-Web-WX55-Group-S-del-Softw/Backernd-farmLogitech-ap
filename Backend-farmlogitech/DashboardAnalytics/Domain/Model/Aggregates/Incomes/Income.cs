@@ -34,8 +34,7 @@ public class Income
         this.Category=command.Category;
         this.Amount=command.Amount;
         this.Date=command.Date;
-        this.Period=command.Period;
-        this.FarmId=command.FarmId;
+        this.Period = command.Period;
     }
     
 }
