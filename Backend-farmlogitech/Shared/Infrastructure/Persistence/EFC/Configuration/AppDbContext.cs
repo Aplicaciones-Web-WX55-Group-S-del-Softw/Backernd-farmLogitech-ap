@@ -136,6 +136,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Profile>().Property(p => p.documentNumber);
             builder.Entity<Profile>().Property(p => p.documentType);
             builder.Entity<Profile>().Property(p => p.userId);
+            builder.Entity<Profile>().Property(p => p.role);
             builder.UseSnakeCaseNamingConvention();
             
             

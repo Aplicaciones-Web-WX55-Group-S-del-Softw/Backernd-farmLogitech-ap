@@ -7,6 +7,6 @@ public class CreateEmployeeCommandFromResourceAssembler
 {
     public static CreateEmployeeCommand ToCommand(CreateEmployeeResource resource)
     {
-        return new CreateEmployeeCommand(resource.Name, resource.Phone, resource.Username, resource.Password, resource.Position, resource.FarmId);
+        return new CreateEmployeeCommand(resource.Name, resource.Phone, resource.Username, resource.Password, resource.Position);
     }
 }

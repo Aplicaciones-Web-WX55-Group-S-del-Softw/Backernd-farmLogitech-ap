@@ -22,4 +22,15 @@ public class UserRepository(AppDbContext context) : BaseRepository<User>(context
     {
         return Context.Set<User>().FirstOrDefaultAsync(user => user.Id == id);
     }
+
+    public Task<User?> GetUsername(int id)
+    {
+        return Context.Set<User>().FirstOrDefaultAsync(user => user.Id == id);
+    }
+
+    public Task<User?> GetPassword(int id)
+    {
+        return Context.Set<User>().FirstOrDefaultAsync(user => user.Id == id);
+
+    }
 }

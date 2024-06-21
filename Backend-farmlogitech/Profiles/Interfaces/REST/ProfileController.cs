@@ -11,7 +11,6 @@ namespace Backend_farmlogitech.Profiles.Interfaces.REST
     [ApiController]
     [Route("api/v1/[controller]")]
     [Produces(MediaTypeNames.Application.Json)]
-    [Authorize]
 
     public class ProfileController : ControllerBase
     {
@@ -33,15 +32,11 @@ namespace Backend_farmlogitech.Profiles.Interfaces.REST
                 ProfileResourceFromEntityAssembler.ToResource(profile));
         }
         
-        [HttpGet("{profileId}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult> GetProfileById(long id)
         {
             var query = new GetProfileByProfileIdQuery(id);
             var result = await _profileQueryService.Handle(query);
-            if (result == null)
-            {
-                return NotFound($"Profile with ID {id} not found.");
-            }
             var resource = ProfileResourceFromEntityAssembler.ToResource(result);
             return Ok(resource);
         }

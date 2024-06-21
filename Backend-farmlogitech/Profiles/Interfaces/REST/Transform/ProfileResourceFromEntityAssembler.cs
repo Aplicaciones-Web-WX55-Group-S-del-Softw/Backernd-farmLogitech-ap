@@ -7,6 +7,7 @@ public class ProfileResourceFromEntityAssembler
 {
     public static ProfileResource ToResource(Profile entity)
     {
-        return new ProfileResource(entity.id, entity.name, entity.email, entity.direction, entity.documentNumber, entity.documentType, entity.userId);
+        return new ProfileResource(entity.id, entity.name, entity.email, entity.direction, 
+            entity.documentNumber, entity.documentType, entity.userId, entity.role);
     }
 }

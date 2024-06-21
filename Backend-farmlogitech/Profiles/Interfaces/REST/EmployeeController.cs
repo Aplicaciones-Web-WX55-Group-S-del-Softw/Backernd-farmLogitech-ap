@@ -27,6 +27,11 @@ namespace Backend_farmlogitech.Profiles.Interfaces.REST
         [HttpPost]
         public async Task<ActionResult> CreateEmployee([FromBody] CreateEmployeeResource resource)
         {
+            if (string.IsNullOrEmpty(resource.Username) || string.IsNullOrEmpty(resource.Password))
+            {
+                return BadRequest("Username or password is null or empty");
+            }
+
             var createEmployeeCommand = CreateEmployeeCommandFromResourceAssembler.ToCommand(resource); 
             var employee = await _employeeCommandService.Handle(createEmployeeCommand);
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.Id }, 
