@@ -9,22 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetMessageByIdAndUserId.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Messages/QueryServices/MessageQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Messages/QueryServices/MessageQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/QueryServices/TaskQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/QueryServices/TaskQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Task/GetAllTasksByCollaboratorIdAndFarmerId.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Repositories/Messages/IMessageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Repositories/Messages/IMessageRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Repositories/Tasks/ITaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Repositories/Tasks/ITaskRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Services/Messages/IMessageQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Services/Messages/IMessageQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Services/Tasks/ITaskQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Services/Tasks/ITaskQueryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Infrastructure/Persistence/EFC/Repositories/Messages/MessageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Infrastructure/Persistence/EFC/Repositories/Messages/MessageRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/TaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bf13250627785885c7e9de74bca35203286cd0eb" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -272,7 +257,7 @@
     <MESSAGE value="feat(profiles): appsettings.json and gitignore updated." />
     <MESSAGE value="feat(profiles): ProfileCommandService.cs and profilequeryservice updated" />
     <MESSAGE value="feat(feature/profile): Add Role in Authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(feature/profile): Add Role in Authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
