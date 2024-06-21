@@ -76,9 +76,9 @@
       "mysql"
     ],
     "rider.external.source.directories": [
-      "C:\\Users\\usuario\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\usuario\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\usuario\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\giaco\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\giaco\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\giaco\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -140,6 +140,7 @@
       <workItem from="1718481916135" duration="6635000" />
       <workItem from="1718509220884" duration="274000" />
       <workItem from="1718729090112" duration="280000" />
+      <workItem from="1718932898599" duration="3457000" />
     </task>
     <task id="LOCAL-00001" summary="feat(monitoring): Fixed validation and http delete and put">
       <option name="closed" value="true" />
@@ -261,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718932532028</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat:  fixed update">
+      <option name="closed" value="true" />
+      <created>1718938023305</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1718938023305</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +306,8 @@
     <MESSAGE value="feat(profiles):  Added Animal, Crops, Incomes and Expenses Validation" />
     <MESSAGE value="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
     <MESSAGE value="feat:  worksplacs" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:  worksplacs" />
+    <MESSAGE value="feat:  fixed update" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:  fixed update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
