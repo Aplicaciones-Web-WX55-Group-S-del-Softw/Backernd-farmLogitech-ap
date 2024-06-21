@@ -1,3 +1,3 @@
 namespace Backend_farmlogitech.Monitoring.Domain.Model.Commands.Messages;
 
-public record CreateMessageCommand(int id, int collaboratorId, string description, int farmerId, int transmitterId);
+public record CreateMessageCommand(string description, long collaboratorId, long farmerId, long transmitterId);

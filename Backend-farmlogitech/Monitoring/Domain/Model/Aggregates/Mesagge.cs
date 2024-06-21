@@ -21,15 +21,6 @@ namespace Backend_farmlogitech.Monitoring.Domain.Model.Aggregates
 
         public Message(CreateMessageCommand command)
         {
-            this.id = command.id;
-            this.collaboratorId = command.collaboratorId;
-            this.description = command.description;
-            this.farmerId = command.farmerId;
-            this.transmitterId = command.transmitterId;
-        }
-
-        public void Update(UpdateMessageCommand command)
-        {
             this.collaboratorId = command.collaboratorId;
             this.description = command.description;
             this.farmerId = command.farmerId;

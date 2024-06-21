@@ -1,3 +1,3 @@
 namespace Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Messages;
 
-public record CreateMessageResource(int Id, int CollaboratorId, string Description);
+public record CreateMessageResource(string description, long collaboratorId, long farmerId, long transmitterId);

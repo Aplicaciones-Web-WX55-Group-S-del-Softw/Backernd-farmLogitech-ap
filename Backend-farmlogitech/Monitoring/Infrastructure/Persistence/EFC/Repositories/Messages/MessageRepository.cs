@@ -12,24 +12,24 @@ namespace Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Reposit
         {
         }
 
-        public async Task<IEnumerable<Message>> FindByCollaboratorId(int collaboratorId)
+        public async Task<IEnumerable<Message>> FindAllByCollaboratorId(long collaboratorId)
         {
-            return await Context.Set<Message>().Where(m => m.CollaboratorId == collaboratorId).ToListAsync();
+            return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> FindByAllMessage()
+        public async Task<IEnumerable<Message>> FindAllByCollaboratorIdAndFarmerId(long collaboratorId, long farmerId)
         {
-            return await Context.Set<Message>().ToListAsync();
-        }
-        
-        public async Task<Message> FindByIdAndUserId(int id, int userId)
-        {
-            return await Context.Set<Message>().FirstOrDefaultAsync(m => m.Id == id && m.CollaboratorId == userId);
+            return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId && m.farmerId == farmerId).ToListAsync();
         }
 
-        public async Task<Message> FindByIdx(int id)
+        public async Task<IEnumerable<Message>> FindAllMessageByCollaboratorIdAndTransmitterIdNot(long collaboratorId, long transmitterId)
         {
-            return await Context.Set<Message>().FirstOrDefaultAsync(m => m.Id == id);
+            return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId && m.transmitterId != transmitterId).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Message>> FindAllMessageByFarmerIdAndTransmitterIdNot(long farmerId, long transmitterId)
+        {
+            return await Context.Set<Message>().Where(m => m.farmerId == farmerId && m.transmitterId != transmitterId).ToListAsync();
         }
     }
 }

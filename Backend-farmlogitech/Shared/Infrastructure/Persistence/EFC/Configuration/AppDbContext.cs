@@ -107,9 +107,11 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             
             // Configuration of the Message entity
             builder.Entity<Message>().ToTable("Messages");
-            builder.Entity<Message>().HasKey(f => f.Id);
-            builder.Entity<Message>().Property(f => f.CollaboratorId);
-            builder.Entity<Message>().Property(f => f.Description);
+            builder.Entity<Message>().HasKey(m => m.id);
+            builder.Entity<Message>().Property(m => m.collaboratorId);
+            builder.Entity<Message>().Property(m => m.description);
+            builder.Entity<Message>().Property(m => m.farmerId);
+            builder.Entity<Message>().Property(m => m.transmitterId);
             builder.UseSnakeCaseNamingConvention();
             
             //Configuracion de la entidad profile
