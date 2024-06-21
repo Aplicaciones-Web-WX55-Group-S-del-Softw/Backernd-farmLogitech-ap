@@ -8,5 +8,5 @@ public interface IAnimalCommandService
     Task<Animal> Handle(CreateAnimalCommand command);
     Task<Animal> Handle(UpdateAnimalCommand command);
     Task<Animal> Handle(DeleteAnimalCommand command);
-    Task<Animal> Handle(ReadAnimalCommand command);
+    //Task<Animal> Handle(ReadAnimalCommand command);
 }

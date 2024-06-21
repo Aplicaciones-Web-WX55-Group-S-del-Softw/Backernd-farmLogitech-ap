@@ -7,22 +7,22 @@ namespace Backend_farmlogitech.Profiles.Domain.Model.Aggregates
     public class Employee
     {
         
-        public string Name { get; private set; }
+        public string Name { get;  set; }
 
         
-        public string Phone { get; private set; }
+        public string Phone { get;  set; }
 
        
-        public string Username { get; private set; }
+        public string Username { get;  set; }
 
        
-        public string Password { get; private set; }
+        public string Password { get;  set; }
 
         
-        public string Position { get; private set; }
+        public string Position { get;  set; }
 
        
-        public int FarmId { get; private set; }
+        public int FarmId { get;  set; }
 
         
         public int Id { get; set; }

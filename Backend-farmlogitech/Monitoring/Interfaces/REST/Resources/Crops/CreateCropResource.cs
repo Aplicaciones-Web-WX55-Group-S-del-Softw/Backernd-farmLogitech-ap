@@ -1,3 +1,3 @@
 namespace Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Crops;
 
-public record CreateCropResource(int Id, string Type, string PlantingDate, int Quantity, int ShedId, int FarmId, int UserId);
+public record CreateCropResource(string Type, string PlantingDate, int Quantity, int ShedId);

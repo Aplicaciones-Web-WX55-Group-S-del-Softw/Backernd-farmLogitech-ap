@@ -59,7 +59,15 @@ public class Farm
         this.Highlights = command.Highlights;
     }
 
+    public int GetUserId()
+    {
+        return UserId;
+    }
     
+    public int GetId()
+    {
+        return Id;
+    }
     
     
     

@@ -7,6 +7,7 @@ public class CreateExpenseCommandFromResourceAssembler
 {
     public static CreateExpenseCommand ToCommandFromResource(CreateExpenseResource resource)
     {
-        return new CreateExpenseCommand(resource.Category, resource.Period, resource.Description, resource.Amount, resource.Date, resource.FarmId);
+        return new CreateExpenseCommand(resource.Category, resource.Period, resource.Description, 
+            resource.Amount, resource.Date, resource.FarmId);
     }
 }

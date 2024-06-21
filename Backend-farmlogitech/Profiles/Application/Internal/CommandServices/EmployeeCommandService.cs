@@ -1,5 +1,6 @@
 ﻿
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration;
+using Backend_farmlogitech.Farms.Domain.Repositories;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
 using Backend_farmlogitech.IAM.Domain.Repositories;
@@ -16,6 +17,7 @@ namespace Backend_farmlogitech.Employees.Application.Internal.CommandServices
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly AppDbContext _dbContext; // Use AppDbContext here
         private readonly IUserRepository _userRepository;
+        private readonly IFarmRepository farmRepository;
 
         public EmployeeCommandService(IEmployeeRepository employeeRepository, IHttpContextAccessor httpContextAccessor, AppDbContext dbContext, IUserRepository userRepository) // Use AppDbContext here
         {
@@ -27,34 +29,46 @@ namespace Backend_farmlogitech.Employees.Application.Internal.CommandServices
 
         public async Task<Employee> Handle(CreateEmployeeCommand command)
         {
-            var userId = User.GlobalVariables.UserId;
+            // Obtiene el ID del usuario autenticado globalmente
+            var userGlobal = User.UserAuthenticate.UserId;
 
-            // Get the role of the user
-            var userRole = await _userRepository.GetUserRole(userId);
+            // Obtiene el rol del usuario a partir del ID del usuario
+            var userRole = await _userRepository.GetUserRole(userGlobal);
 
-            // Check if the user role is allowed to create a Employee
-            if (userRole != null && userRole.Role != Role.FARMWORKER && userRole.Role != Role.OWNER)
+            // Verifica si el rol del usuario no es FARMER. Si no lo es, lanza una excepción
+            if (userRole.Role != Role.FARMER)
             {
-                throw new Exception("Only users with allowed role can create a Employee Profile");
+                throw new Exception("Only users with role FARMER can create an Employee Profile");
             }
 
-            // Check if the user has already created a Employee
-            var existingEmployee = await _employeeRepository.FindById(command.FarmId);
-            if (existingEmployee != null)
+            // Obtiene la granja a la que pertenece el usuario autenticado
+            var farm = await farmRepository.GetFarmByUserId(userGlobal);
+            if (farm == null)
             {
-                throw new Exception("User has already created a Employee");
+                throw new Exception("User does not belong to any farm");
             }
 
-            var employee = new Employee(command)
+            // Obtiene el ID de la granja
+            var farmId = farm.GetId();
+
+            // Crea un nuevo empleado con el comando proporcionado
+            var employeeNew = new Employee(command)
             {
-                Id = userId
+                Id = userGlobal,
+                FarmId = farmId
             };
 
-            employee.Id= userId;
-            await _employeeRepository.AddAsync(employee);
-            await _dbContext.SaveChangesAsync(); // Add this line
+            // como que sign up
+           //todo como que sign up
 
-            return employee;
+            // Agrega el nuevo empleado al repositorio
+            await _employeeRepository.AddAsync(employeeNew);
+
+            // Completa la transacción de la unidad de trabajo
+            await _dbContext.SaveChangesAsync();
+
+            return employeeNew;
         }
+
     }
 }

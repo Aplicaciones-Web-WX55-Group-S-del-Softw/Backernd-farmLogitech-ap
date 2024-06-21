@@ -26,7 +26,7 @@ public class IncomeController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> CreateIncome([FromBody] CreateIncomeResource command)
     {
-        var income = CreateIncomeCommandFromResourceAssembler.ToCommand(command);
+        var income = CreateIncomeCommandFromResourceAssembler.ToCommandFromResource(command);
         var result = await _incomeCommandService.Handle(income);
         return CreatedAtAction(nameof(GetIncomeById), new { id = result.Id },
             IncomeResourceFromEntityAssembler.ToResource(result));

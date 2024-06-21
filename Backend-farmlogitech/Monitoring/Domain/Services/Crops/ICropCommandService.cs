@@ -8,6 +8,6 @@ public interface ICropCommandService
     Task<Crop> Handle(CreateCropCommand command); 
     Task<Crop> Handle(UpdateCropCommand command);
     Task<Crop> Handle(DeleteCropCommand command);
-    Task<Crop> Handle(ReadCropCommand command);
+    //Task<Crop> Handle(ReadCropCommand command);
 
 }
