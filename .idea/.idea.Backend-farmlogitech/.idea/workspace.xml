@@ -9,28 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(profiles):  Added Animal, Crops, Incomes and Expenses Validation">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Aggregates/Expenses/Expense.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Aggregates/Expenses/Expense.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Aggregates/Incomes/Income.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Aggregates/Incomes/Income.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Commands/Expenses/CreateExpenseCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Commands/Expenses/CreateExpenseCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Commands/Incomes/CreateIncomeCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Domain/Model/Commands/Incomes/CreateIncomeCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Resources/Expenses/CreateExpenseResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Resources/Expenses/CreateExpenseResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Resources/Incomes/CreateIncomeResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Resources/Incomes/CreateIncomeResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Transform/Expenses/CreateExpenseCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Transform/Expenses/CreateExpenseCommandFromResourceAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Transform/Incomes/CreateIncomeCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/DashboardAnalytics/Interfaces/REST/Transform/Incomes/CreateIncomeCommandFromResourceAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Animals/CommandServices/AnimalCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Animals/CommandServices/AnimalCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Crops/CommandServices/CropCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Crops/CommandServices/CropCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Sheds/CommandServices/ShedCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Sheds/CommandServices/ShedCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Animal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Animal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Crop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Crop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Shed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Shed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Animals/CreateAnimalCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Animals/CreateAnimalCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Sheds/CreateShedCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Sheds/CreateShedCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Shed/CreateShedResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Shed/CreateShedResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Shed/CreateShedCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Shed/CreateShedCommandFromResourceAssembler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
-    </list>
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -266,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718931269212</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds">
+      <option name="closed" value="true" />
+      <created>1718932487005</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1718932487005</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +287,8 @@
     <MESSAGE value="feat: profiles context facade implemented." />
     <MESSAGE value="feat(profiles: Added employees" />
     <MESSAGE value="feat(profiles):  Added Animal, Crops, Incomes and Expenses Validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(profiles):  Added Animal, Crops, Incomes and Expenses Validation" />
+    <MESSAGE value="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(profiles):  Finished validations in ANimals, crops, expenses, incomes and sheds" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
