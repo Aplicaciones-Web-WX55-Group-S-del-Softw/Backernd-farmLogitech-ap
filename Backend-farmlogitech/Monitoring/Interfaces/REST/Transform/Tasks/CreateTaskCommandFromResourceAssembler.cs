@@ -7,6 +7,6 @@ public static class CreateTaskCommandFromResourceAssembler
 {
     public static CreateTaskCommand ToCommandFromResource(CreateTaskResource resource)
     {
-        return new CreateTaskCommand(resource.Id, resource.CollaboratorId, resource.FarmerId, resource.Description);
+        return new CreateTaskCommand(resource.id, resource.collaboratorId, resource.farmerId, resource.description);
     }
 }

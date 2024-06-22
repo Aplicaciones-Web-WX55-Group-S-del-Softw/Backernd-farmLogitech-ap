@@ -1,3 +1,3 @@
 namespace Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Tasks;
 
-public record TaskResource(int Id, int CollaboratorId, int FarmerId, string Description);
+public record TaskResource(int id, int collaboratorId, int farmerId, string description);

@@ -7,6 +7,6 @@ public static class TaskResourceFromEntityAssembler
 {
     public static TaskResource ToResourceFromEntity(AggregatesTask entity)
     {
-        return new TaskResource(entity.Id, entity.CollaboratorId, entity.FarmerId, entity.Description);
+        return new TaskResource(entity.id, entity.collaboratorId, entity.farmerId, entity.description);
     }
 }

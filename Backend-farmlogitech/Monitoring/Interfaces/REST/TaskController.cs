@@ -26,7 +26,7 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
         {
             var createTaskCommand = CreateTaskCommandFromResourceAssembler.ToCommandFromResource(resource);
             var result = await taskCommandService.Handle(createTaskCommand);
-            return CreatedAtAction(nameof(GetTaskById), new { id = result.Id }, TaskResourceFromEntityAssembler.ToResourceFromEntity(result));
+            return CreatedAtAction(nameof(GetTaskById), new { id = result.id }, TaskResourceFromEntityAssembler.ToResourceFromEntity(result));
         }
 
         [HttpGet("{id}")]
@@ -51,7 +51,7 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
         public async Task<ActionResult> UpdateTask(int id, [FromBody] UpdateTaskResource resource)
         {
             var updateTaskCommand = UpdateTaskCommandFromResourceAssembler.ToCommandFromResource(resource);
-            updateTaskCommand = updateTaskCommand with { Id = id };
+            updateTaskCommand = updateTaskCommand with { id = id };
             var result = await taskCommandService.Handle(updateTaskCommand);
             return Ok(TaskResourceFromEntityAssembler.ToResourceFromEntity(result));
         }

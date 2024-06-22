@@ -35,7 +35,7 @@ public class TaskCommandService : ITaskCommandService
         }
 
         // Check if the task already exists
-        var existingTask = await taskRepository.FindByIdx(command.Id);
+        var existingTask = await taskRepository.FindByIdx(command.id);
         if (existingTask != null)
         {
             throw new Exception("Task with this ID already exists");
@@ -50,7 +50,7 @@ public class TaskCommandService : ITaskCommandService
     public async Task<AggregatesTask> Handle(UpdateTaskCommand command)
     {
         var userGlobal = User.UserAuthenticate.UserId; 
-        var taskToUpdate = await taskRepository.FindByIdx(command.Id);
+        var taskToUpdate = await taskRepository.FindByIdx(command.id);
         if (taskToUpdate == null)
             throw new Exception("Task with ID does not exist");
         taskToUpdate.Update(command);

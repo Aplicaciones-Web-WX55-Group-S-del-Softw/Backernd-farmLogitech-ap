@@ -109,10 +109,10 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             
             // Configuration of the Task entity
             builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().ToTable("Tasks");
-            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().HasKey(f => f.Id);
-            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.CollaboratorId);
-            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.FarmerId);
-            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.Description);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().HasKey(f => f.id);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.collaboratorId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.farmerId);
+            builder.Entity<Backend_farmlogitech.Monitoring.Domain.Model.Aggregates.Task>().Property(f => f.description);
             builder.UseSnakeCaseNamingConvention();
             
             // Configuration of the Message entity

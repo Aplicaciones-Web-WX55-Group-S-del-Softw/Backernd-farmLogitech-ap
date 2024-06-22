@@ -9,10 +9,10 @@ public class TaskQueryService (ITaskRepository taskRepository): ITaskQueryServic
 {
     public async Task<AggregatesTask> Handle(GetTaskByIdQuery query)
     {
-        return await taskRepository.FindByIdAsync(query.Id);
+        return await taskRepository.FindByIdAsync(query.id);
     }
     public async Task<IEnumerable<AggregatesTask>> Handle(GetAllTasksByCollaboratorId query)
     {
-        return await taskRepository.FindByCollaboratorIdAsync(query.CollaboratorId);
+        return await taskRepository.FindByCollaboratorIdAsync(query.collaboratorId);
     }
 }

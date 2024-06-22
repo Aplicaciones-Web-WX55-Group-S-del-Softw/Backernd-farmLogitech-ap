@@ -51,16 +51,16 @@ public class Task
     
     public Task(CreateTaskCommand command)
     {
-        this.id = command.Id;
-        this.collaboratorId = command.CollaboratorId;
-        this.farmerId = command.FarmerId;
-        this.description = command.Description;
+        this.id = command.id;
+        this.collaboratorId = command.collaboratorId;
+        this.farmerId = command.farmerId;
+        this.description = command.description;
     }
 
     public void Update(UpdateTaskCommand command)
     {
-        this.collaboratorId = command.CollaboratorId;
-        this.farmerId = command.FarmerId;
-        this.description = command.Description;
+        this.collaboratorId = command.collaboratorId;
+        this.farmerId = command.farmerId;
+        this.description = command.description;
     }
 }

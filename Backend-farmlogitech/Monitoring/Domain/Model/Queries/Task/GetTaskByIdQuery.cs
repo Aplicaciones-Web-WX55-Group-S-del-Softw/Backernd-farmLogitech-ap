@@ -1,3 +1,3 @@
 namespace Backend_farmlogitech.Monitoring.Domain.Model.Queries.Task;
 
-public record GetTaskByIdQuery(int Id);
+public record GetTaskByIdQuery(int id);

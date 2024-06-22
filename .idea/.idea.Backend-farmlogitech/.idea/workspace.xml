@@ -9,10 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(monitoring): update monitoring.">
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(monitoring): GetExpenseByCategoryAndPeriodQuery.cs.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/CommandServices/TaskCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/CommandServices/TaskCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/QueryServices/TaskQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/QueryServices/TaskQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Tasks/CreateTaskCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Tasks/CreateTaskCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Tasks/UpdateTaskCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Tasks/UpdateTaskCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Task/GetAllTasksByCollaboratorId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Task/GetAllTasksByCollaboratorId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Task/GetTaskByIdQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Task/GetTaskByIdQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Infrastructure/Persistence/EFC/Repositories/Tasks/TaskRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Infrastructure/Persistence/EFC/Repositories/Tasks/TaskRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Tasks/CreateTaskResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Tasks/CreateTaskResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Tasks/TaskResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Tasks/TaskResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Tasks/UpdateTaskResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Tasks/UpdateTaskResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/TaskController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Tasks/CreateTaskCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Tasks/CreateTaskCommandFromResourceAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Tasks/TaskResourceFromEntityAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Tasks/TaskResourceFromEntityAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Tasks/UpdateTaskCommandFromResourceAssembler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Transform/Tasks/UpdateTaskCommandFromResourceAssembler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +71,7 @@
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/CreateMessageResource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/MessageResource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -75,6 +90,7 @@
     ".NET Launch Settings Profile.Backend-farmlogitech: IIS Express.executor": "Debug",
     ".NET Launch Settings Profile.Backend-farmlogitech: http.executor": "Run",
     ".NET Launch Settings Profile.Backend-farmlogitech: https.executor": "Run",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -253,7 +269,23 @@
       <option name="project" value="LOCAL" />
       <updated>1719027799466</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat(monitoring): task updated.">
+      <option name="closed" value="true" />
+      <created>1719033820431</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719033820432</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat(monitoring): GetExpenseByCategoryAndPeriodQuery.cs.">
+      <option name="closed" value="true" />
+      <created>1719033882023</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719033882023</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +305,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="feat(monitoring): Fixed validation and http delete and put" />
     <MESSAGE value="feat(monitoring):  Added unversioned files" />
@@ -286,7 +319,9 @@
     <MESSAGE value="feat(feature/profile): Add Role in Authentication" />
     <MESSAGE value="feat: profiles context facade implemented." />
     <MESSAGE value="feat(monitoring): update monitoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(monitoring): update monitoring." />
+    <MESSAGE value="feat(monitoring): task updated." />
+    <MESSAGE value="feat(monitoring): GetExpenseByCategoryAndPeriodQuery.cs." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(monitoring): GetExpenseByCategoryAndPeriodQuery.cs." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
