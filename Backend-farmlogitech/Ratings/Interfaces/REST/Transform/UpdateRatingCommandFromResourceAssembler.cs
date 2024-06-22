@@ -1,7 +1,7 @@
-using backend_famLogitech_aw.Ratings.Interfaces.REST.Resources;
+using backend_famLogitech.Ratings.Interfaces.REST.Resources;
 using Backend_farmlogitech.Ratings.Domain.Model.Commands;
 
-namespace backend_famLogitech_aw.Ratings.Interfaces.REST.Transform;
+namespace Backend_farmlogitech.Ratings.Interfaces.REST.Transform;
 
 public static class UpdateRatingCommandFromResourceAssembler
 {

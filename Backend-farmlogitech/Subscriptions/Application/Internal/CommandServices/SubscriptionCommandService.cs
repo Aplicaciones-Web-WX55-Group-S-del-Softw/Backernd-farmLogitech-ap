@@ -19,10 +19,7 @@ public class SubscriptionCommandService : ISubscriptionCommandService
 
     public async Task<Subscription> Handle(CreateSubscriptionCommand command)
     {
-        var subscription = await _subscriptionRepository.FindByIdAsync(command.Id); 
-        if(subscription != null)
-            throw new Exception ("Subscription already exists");
-        subscription = new Subscription(command); 
+        var subscription = new Subscription(command); 
         await _subscriptionRepository.AddAsync(subscription);
         await _unitOfWork.CompleteAsync(); 
         return subscription;

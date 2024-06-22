@@ -1,3 +1,3 @@
 ﻿namespace Backend_farmlogitech.DashboardAnalytics.Domain.Model.Queries.Incomes;
 
-public record GetIncomeByCategoryAndPeriodQuery(string Category, string Period);
+public record GetIncomeByCategoryAndDateQuery(string Category, string Date);

@@ -33,7 +33,7 @@ namespace Backend_farmlogitech.Profiles.Interfaces
                 ProfileResourceFromEntityAssembler.ToResource(profile));
         }
         
-        [HttpGet("{id}")]
+        [HttpGet("{profileId}")]
         public async Task<ActionResult> GetProfileById(long id)
         {
             var query = new GetProfileByProfileIdQuery(id);

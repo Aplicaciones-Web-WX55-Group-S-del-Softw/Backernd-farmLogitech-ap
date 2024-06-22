@@ -7,7 +7,7 @@ public interface IRatingQueryService
 {
     Task<Rating> Handle(GetRatingByIdQuery query);
     
-    Task<IEnumerable<Rating>> Handle(GetRatingByUserIdQuery query);
+    Task<Rating> Handle(GetRatingByUserIdQuery query);
     
     Task<IEnumerable<Rating>> Handle(GetAllRatingQuery query);
 }

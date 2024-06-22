@@ -13,5 +13,6 @@ public interface IFarmRepository: IBaseRepository<Farm>
    
     
     Task<Farm?> FindByUserId(int id);
+    Task<Farm?> GetFarmByUserId(int id);
   
 }

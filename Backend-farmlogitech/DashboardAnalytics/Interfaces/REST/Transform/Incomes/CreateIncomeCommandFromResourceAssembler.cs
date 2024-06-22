@@ -7,6 +7,6 @@ public class CreateIncomeCommandFromResourceAssembler
 {
     public static CreateIncomeCommand ToCommand(CreateIncomeResource resource)
     {
-        return new CreateIncomeCommand(resource.Category, resource.Period, resource.Description, resource.Amount, resource.Date);
+        return new CreateIncomeCommand(resource.Category, resource.Period, resource.Description, resource.Amount, resource.Date, resource.FarmId);
     }
 }

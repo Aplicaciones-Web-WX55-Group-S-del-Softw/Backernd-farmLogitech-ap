@@ -7,25 +7,25 @@ namespace Backend_farmlogitech.DashboardAnalytics.Application.Internal.QueryServ
 
 public class ExpenseQueryService : IExpenseQueryService
 {
-    private readonly IExpenseRepository _ExpenseRepository;
+    private readonly IExpenseRepository _expenseRepository;
 
-    public ExpenseQueryService(IExpenseRepository ExpenseRepository)
+    public ExpenseQueryService(IExpenseRepository expenseRepository)
     {
-        _ExpenseRepository = ExpenseRepository;
+        _expenseRepository = expenseRepository;
     }
 
     public async Task<Expense> Handle(GetExpenseByIdQuery query)
     {
-        return await _ExpenseRepository.FindByIdAsync(query.Id);
+        return await _expenseRepository.GetExpenseById(query.Id);
     }
 
-    public async Task<Expense?> Handle(GetExpenseByCategoryAndPeriodQuery query)
+    public async Task<Expense?> Handle(GetExpenseByCategoryAndDateQuery query)
     {
-        return await _ExpenseRepository.GetByCategoryAndPeriod(query.Category, query.Period);
+        return await _expenseRepository.GetByCategoryAndDate(query.Category, query.Date);
     }
 
-    public async Task<IEnumerable<Expense>> Handle(GetAllByCategoryAndPeriodQuery query)
+    public async Task<IEnumerable<Expense>> Handle(GetAllByFarmIdQuery query)
     {
-        return await _ExpenseRepository.GetAllByCategoryAndPeriod(query.Category, query.Period);
+        return await _expenseRepository.GetAllByFarmId(query.Farmid);
     }
 }

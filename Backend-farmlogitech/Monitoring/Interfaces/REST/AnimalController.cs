@@ -49,7 +49,7 @@ public class AnimalController : ControllerBase
         return Ok(resource);
     }
 
-    [HttpGet("animal/all")]
+    [HttpGet("all")]
     public async Task<ActionResult> GetAllAnimals()
     {
         var query = new GetAllAnimalsQuery();

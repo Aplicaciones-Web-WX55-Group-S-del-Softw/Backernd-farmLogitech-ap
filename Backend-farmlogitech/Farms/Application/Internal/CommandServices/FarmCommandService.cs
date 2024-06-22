@@ -5,6 +5,8 @@ using Backend_farmlogitech.Farms.Domain.Model.Commands.Farm;
 using Backend_farmlogitech.Farms.Domain.Repositories;
 using Backend_farmlogitech.Farms.Domain.Services;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
+using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
+using Backend_farmlogitech.IAM.Domain.Repositories;
 using static Backend_farmlogitech.IAM.Domain.Model.Aggregates.User;
 
 namespace Backend_farmlogitech.Farms.Application.Internal.CommandServices;
@@ -13,57 +15,50 @@ public class FarmCommandService : IFarmCommandService
 {
     private readonly IUnitOfWork unitOfWork;
     private readonly IFarmRepository farmRepository;
-    private readonly IHttpContextAccessor httpContextAccessor;
-    public FarmCommandService(IUnitOfWork unitOfWork, IFarmRepository farmRepository, IHttpContextAccessor httpContextAccessor)
+    private readonly IUserRepository userRepository;
+    public FarmCommandService(IUnitOfWork unitOfWork, IFarmRepository farmRepository, IUserRepository userRepository)
     {
         this.unitOfWork = unitOfWork;
         this.farmRepository = farmRepository;
-        this.httpContextAccessor = httpContextAccessor;
+        this.userRepository= userRepository;
     }
-
-    public int GetAuthenticatedUserId()
-    {
-        var userClaims = httpContextAccessor.HttpContext?.User;
-        if (userClaims == null || !userClaims.Identity.IsAuthenticated)
-        {
-            throw new Exception("User is not authenticated");
-        }
-
-        var userIdClaim = userClaims.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (userIdClaim == null)
-        {
-            throw new Exception("User ID claim is missing");
-        }
-
-        if (!int.TryParse(userIdClaim, out int userId))
-        {
-            throw new Exception("User ID claim is not a valid integer");
-        }
-
-        return userId;
-    }
-
+    
     public async Task<Farm> Handle(CreateFarmCommand command)
     {
-        var userId= GetAuthenticatedUserId();
-        
+        var userGlobal = User.UserAuthenticate.UserId;
+        var userRole = await userRepository.GetUserRole(userGlobal);
+        if (userRole.Role != Role.FARMER)
+        {
+            throw new Exception("Only users with role FARMER can create a farm");
+        }
+
+        // Check if the user has already created a farm
+        var existingFarm = await farmRepository.GetFarmByUserId(userGlobal);
+        if (existingFarm != null)
+        {
+            throw new Exception("User has already created a farm");
+        }
+
         var farmNew = new Farm(command);
-        farmNew.UserId = userId;
+        farmNew.UserId = userGlobal;
         await farmRepository.AddAsync(farmNew);
         await unitOfWork.CompleteAsync();
         return farmNew;
     }
-
+    
     public async Task<Farm> Handle(UpdateFarmCommand command)
     {
         
-        var farmToUpdate = await farmRepository.FindByIdAsync(command.Id);
+        var userGlobal = User.UserAuthenticate.UserId; //valid my farm
+        var farmToUpdate = await farmRepository.FindByIdAsync(userGlobal);
         if (farmToUpdate == null)
             throw new Exception("Farm with ID does not exist");
         farmToUpdate.Update(command);
         await unitOfWork.CompleteAsync();
         return farmToUpdate;
         
-        return null;
     }
+    
+    
+    
 }

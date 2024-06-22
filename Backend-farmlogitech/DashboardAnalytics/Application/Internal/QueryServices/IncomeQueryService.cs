@@ -16,16 +16,16 @@ public class IncomeQueryService : IIncomeQueryService
 
     public async Task<Income> Handle(GetIncomeByIdQuery query)
     {
-        return await _incomeRepository.FindByIdAsync(query.id);
+        return await _incomeRepository.GetIncomeById(query.id);
     }
 
-    public async Task<Income?> Handle(GetIncomeByCategoryAndPeriodQuery query)
+    public async Task<Income?> Handle(GetIncomeByCategoryAndDateQuery query)
     {
-        return await _incomeRepository.GetByCategoryAndPeriod(query.Category, query.Period);
+        return await _incomeRepository.GetByCategoryAndDate(query.Category, query.Date);
     }
 
-    public async Task<IEnumerable<Income>> Handle(GetAllIncomeByCategoryAndPeriodQuery query)
+    public async Task<IEnumerable<Income>> Handle(GetAllIncomeByFarmIdQuery query)
     {
-        return await _incomeRepository.GetAllByCategoryAndPeriod(query.Category, query.Period);
+        return await _incomeRepository.GetAllByFarmId(query.Farmid);
     }
 }

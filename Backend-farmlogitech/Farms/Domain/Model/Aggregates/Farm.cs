@@ -1,4 +1,5 @@
 using Backend_farmlogitech.Farms.Domain.Model.Commands.Farm;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Backend_farmlogitech.Farms.Domain.Model.Aggregates;
 
@@ -34,11 +35,16 @@ public class Farm
         this.Infrastructure = string.Empty;
         this.Certificate = string.Empty;
         this.Product = string.Empty;
-        
+         
     }
 
     public Farm(CreateFarmCommand command)
     {
+        if(string.IsNullOrEmpty(command.FarmName) || string.IsNullOrEmpty(command.Location) || string.IsNullOrEmpty(command.Type) || string.IsNullOrEmpty(command.Infrastructure) || string.IsNullOrEmpty(command.Certificate) || string.IsNullOrEmpty(command.Product) || string.IsNullOrEmpty(command.Services) || string.IsNullOrEmpty(command.Status) || string.IsNullOrEmpty(command.Image) || string.IsNullOrEmpty(command.Price) || string.IsNullOrEmpty(command.Surface) || string.IsNullOrEmpty(command.Highlights))
+        {
+            throw new ArgumentException("None of the properties can be null or empty");
+        }
+    
         this.FarmName = command.FarmName;
         this.Location = command.Location;
         this.Type = command.Type;
@@ -51,10 +57,7 @@ public class Farm
         this.Price = command.Price;
         this.Surface = command.Surface;
         this.Highlights = command.Highlights;
-
     }
-    
-
 
     
     

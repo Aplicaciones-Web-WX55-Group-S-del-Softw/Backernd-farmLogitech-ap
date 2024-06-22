@@ -7,6 +7,6 @@ public static class ExpenseResourceFromEntityAssembler
 {
     public static ExpenseResource ToResourceFromEntity(Expense expense)
     {
-        return new ExpenseResource(expense.Id, expense.Category, expense.Period, expense.Description, expense.Amount, expense.Date);
+        return new ExpenseResource(expense.Id, expense.Category, expense.Period, expense.Description, expense.Amount, expense.Date, expense.FarmId);
     }
 }

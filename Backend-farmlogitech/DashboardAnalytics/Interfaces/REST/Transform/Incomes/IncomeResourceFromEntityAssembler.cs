@@ -7,6 +7,6 @@ public class IncomeResourceFromEntityAssembler
 {
     public static IncomeResource ToResource(Income entity)
     {
-        return new IncomeResource(entity.Id, entity.Category, entity.Period, entity.Description, entity.Amount, entity.Date);
+        return new IncomeResource(entity.Id, entity.Category, entity.Period, entity.Description, entity.Amount, entity.Date, entity.FarmId);
     }
 }

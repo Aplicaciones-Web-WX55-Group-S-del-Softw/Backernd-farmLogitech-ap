@@ -11,17 +11,22 @@ public class ExpenseRepository : BaseRepository<Expense>, IExpenseRepository
     public ExpenseRepository(AppDbContext context) : base(context)
     {
     }
-    public async Task<IEnumerable<Expense>> GetAllByCategoryAndPeriod(string category, string period)
+    
+    public Task<Expense?> GetExpenseById(int id)
+    {
+        return Context.Set<Expense>().FirstOrDefaultAsync(f => Equals(f.Id, id));
+    }
+    public async Task<IEnumerable<Expense>> GetAllByFarmId(int farmid)
     {
         return await Context.Set<Expense>()
-            .Where(i => i.Category == category && i.Period == period)
+            .Where(i => i.FarmId == farmid)
             .ToListAsync();
     }
 
-    public async Task<Expense?> GetByCategoryAndPeriod(string category, string period)
+    public async Task<Expense?> GetByCategoryAndDate(string category, string date)
     {
         return await Context.Set<Expense>()
-            .Where(i => i.Category == category && i.Period == period)
+            .Where(i => i.Category == category && i.Date == date)
             .FirstOrDefaultAsync();
     }
 }

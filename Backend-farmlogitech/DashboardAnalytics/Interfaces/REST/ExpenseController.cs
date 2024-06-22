@@ -24,8 +24,8 @@ public class ExpenseController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> CreateExpense([FromBody] CreateExpenseResource command)
     {
-        var Expense = CreateExpenseCommandFromResourceAssembler.ToCommandFromResource(command);
-        var result = await _ExpenseCommandService.Handle(Expense);
+        var expense = CreateExpenseCommandFromResourceAssembler.ToCommandFromResource(command);
+        var result = await _ExpenseCommandService.Handle(expense);
         return CreatedAtAction(nameof(GetExpenseById), new { id = result.Id },
             ExpenseResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
@@ -39,23 +39,25 @@ public class ExpenseController : ControllerBase
         return Ok(resource);
     }
     
-    [HttpGet("Expense/{category}/{period}")]
-    public async Task<ActionResult> GetExpenseByCategoryAndPeriod(string category, string period)
+    [HttpGet("Expense/{category}/{date}")]
+    public async Task<ActionResult> GetExpenseByCategoryAndPeriod(string category, string date)
     {
-        var query = new GetExpenseByCategoryAndPeriodQuery(category, period);
+        var query = new GetExpenseByCategoryAndDateQuery(category, date);
         var result = await _ExpenseQueryService.Handle(query);
         var resource = ExpenseResourceFromEntityAssembler.ToResourceFromEntity(result);
         return Ok(resource);
     }
     
     [HttpGet("Expense/all")]
-    public async Task<ActionResult> GetAllExpenseByCategoryAndPeriod(string category, string period)
+    public async Task<ActionResult> GetAllExpenseByFarmId(int Farmid)
     {
-        var query = new GetAllByCategoryAndPeriodQuery(category, period);
+        var query = new GetAllByFarmIdQuery(Farmid);
         var result = await _ExpenseQueryService.Handle(query);
         var resource = result.Select(ExpenseResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resource);
     }
+    
+    
 
  
 }

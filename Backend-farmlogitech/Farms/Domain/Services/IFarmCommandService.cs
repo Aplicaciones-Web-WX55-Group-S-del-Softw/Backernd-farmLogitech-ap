@@ -9,5 +9,4 @@ public interface IFarmCommandService
 
  Task<Farm> Handle(UpdateFarmCommand command); 
 
- int GetAuthenticatedUserId();
 }

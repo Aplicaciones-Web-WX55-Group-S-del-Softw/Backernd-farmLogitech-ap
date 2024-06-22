@@ -7,6 +7,6 @@ public class CreateProfileCommandFromResourceAssembler
 {
     public static CreateProfileCommand ToCommand(CreateProfileResource resource)
     {
-        return new CreateProfileCommand(resource.Name, resource.Email, resource.Direction, resource.DocumentNumber, resource.DocumentType, resource.UserId);
+        return new CreateProfileCommand(resource.Name, resource.Email, resource.Direction, resource.DocumentNumber, resource.DocumentType);
     }
 }

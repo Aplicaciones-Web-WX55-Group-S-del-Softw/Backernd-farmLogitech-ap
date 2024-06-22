@@ -19,8 +19,8 @@ public class ExpenseCommandService : IExpenseCommandService
 
     public async Task<Expense> Handle(CreateExpenseCommand command)
     {
-        var expense1 = await _expenseRepository.GetByCategoryAndPeriod(
-            command.Category, command.Period);
+        var expense1 = await _expenseRepository.GetByCategoryAndDate(
+            command.Category, command.Date);
         if(expense1 != null)
             throw new Exception("Expense already exists");
         expense1 = new Expense(command);
