@@ -22,12 +22,12 @@ namespace Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Reposit
             return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId && m.farmerId == farmerId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> FindAllMessageByCollaboratorIdAndTransmitterIdNot(int collaboratorId, int transmitterId)
+        public async Task<IEnumerable<Message>> FindAllMessageByCollaboratorIdAndTransmitterId(int collaboratorId, int transmitterId)
         {
             return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId && m.transmitterId != transmitterId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> FindAllMessageByFarmerIdAndTransmitterIdNot(int farmerId, int transmitterId)
+        public async Task<IEnumerable<Message>> FindAllMessageByFarmerIdAndTransmitterId(int farmerId, int transmitterId)
         {
             return await Context.Set<Message>().Where(m => m.farmerId == farmerId && m.transmitterId != transmitterId).ToListAsync();
         }
