@@ -11,8 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="feat(monitoring): update monitoring.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Messages/CommandServices/MessageCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Messages/CommandServices/MessageCommandService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/CommandServices/TaskCommandService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Tasks/CommandServices/TaskCommandService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +44,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Application/Internal/Messages/CommandServices/MessageCommandService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Application/Internal/Messages/CommandServices/MessageCommandService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Application/Internal/Messages/QueryServices/MessageQueryService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Mesagge.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Messages/CreateMessageCommand.cs" root0="SKIP_HIGHLIGHTING" />
@@ -51,15 +53,10 @@
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetAllMessagesByCollaboratorIdAndFarmerId.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetMessageByIdAndUserId.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Domain/Repositories/Messages/IMessageRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Domain/Repositories/Messages/IMessageRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/CreateMessageResource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/backfinalweb/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/MessageResource.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web ultimo final/Backend-farmlogitech/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web ultimo final/Backend-farmlogitech/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web ultimo final/Backend-farmlogitech/Ratings/Interfaces/REST/RatingController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web ultimo final/Backend-farmlogitech/Ratings/Interfaces/REST/RatingController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web ultimo final/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/USUARIO/OneDrive/Escritorio/back de web ultimo final/Backend-farmlogitech/Shared/Infrastructure/Persistence/EFC/Configuration/AppDbContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -248,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719019010519</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat(monitoring): update monitoring.">
+      <option name="closed" value="true" />
+      <created>1719027799466</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719027799466</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,9 +284,9 @@
     <MESSAGE value="feat(profiles): appsettings.json and gitignore updated." />
     <MESSAGE value="feat(profiles): ProfileCommandService.cs and profilequeryservice updated" />
     <MESSAGE value="feat(feature/profile): Add Role in Authentication" />
-    <MESSAGE value="feat(monitoring): update monitoring." />
     <MESSAGE value="feat: profiles context facade implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="feat(monitoring): update monitoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(monitoring): update monitoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
