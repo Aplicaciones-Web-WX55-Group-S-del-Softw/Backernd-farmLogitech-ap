@@ -34,12 +34,12 @@ namespace Backend_farmlogitech.Monitoring.Application.Internal.Messages.CommandS
             // Check if the user role is not TRANSMITTER. If it's not, throw an exception
             if (userRole.Role != Role.FARMER)
             {
-                throw new Exception("Only users with role TRANSMITTER can create a message");
+                throw new Exception("Only users with role FARMER can create a message");
             }
 
             // Check if the user has already created a message. If they have, throw an exception
-            var existingMessage = await _messageRepository.GetMessageByUserId(userGlobal);
-            if (existingMessage != null)
+            var existingMessages = await _messageRepository.FindAllMessageByCollaboratorIdAndTransmitterId(userGlobal, command.transmitterId);
+            if (existingMessages.Any())
             {
                 throw new Exception("User has already created a message");
             }
