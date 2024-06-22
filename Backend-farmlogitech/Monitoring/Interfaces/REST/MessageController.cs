@@ -3,6 +3,9 @@ using Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Messages;
 using Backend_farmlogitech.Monitoring.Interfaces.REST.Transform.Messages;
 using Backend_farmlogitech.Monitoring.Domain.Services.Messages;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Backend_farmlogitech.Monitoring.Interfaces.REST
 {
@@ -28,10 +31,21 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
             return CreatedAtAction(nameof(GetMessageById), new { messageId = messageResource.id }, messageResource);
         }
 
-        [HttpGet("message/{messageId}")]
-        public async Task<ActionResult<MessageResource>> GetMessageById(long messageId)
+        [HttpGet("user")]
+        public async Task<ActionResult<List<MessageResource>>> GetAllMessagesByAuthenticatedUser()
         {
-            var query = new GetMessageByIdAndUserId(messageId);
+            var authenticatedUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var query = new GetAllMessagesByCollaboratorIdAndFarmerId(authenticatedUserId, authenticatedUserId);
+            var messages = await _messageQueryService.Handle(query);
+            var messageResources = messages.Select(MessageResourceFromEntityAssembler.ToResourceFromEntity).ToList();
+            return Ok(messageResources);
+        }
+
+        [HttpGet("message/{messageId}")]
+        public async Task<ActionResult<MessageResource>> GetMessageById(int messageId)
+        {
+            var authenticatedUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var query = new GetMessageByIdAndUserId(messageId, authenticatedUserId);
             var message = await _messageQueryService.Handle(query);
             if (message == null)
             {
@@ -42,7 +56,7 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<MessageResource>>> GetAllMessagesByCollaboratorIdAndFarmerId(long collaboratorId, long farmerId)
+        public async Task<ActionResult<List<MessageResource>>> GetAllMessagesByCollaboratorIdAndFarmerId(int collaboratorId, int farmerId)
         {
             var query = new GetAllMessagesByCollaboratorIdAndFarmerId(collaboratorId, farmerId);
             var messages = await _messageQueryService.Handle(query);

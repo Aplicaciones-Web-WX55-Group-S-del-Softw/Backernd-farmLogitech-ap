@@ -1,3 +1,3 @@
 ﻿namespace Backend_farmlogitech.Monitoring.Domain.Model.Queries.Message;
 
-public record GetMessageByIdAndUserId (long messageId);
+public record GetMessageByIdAndUserId (int messageId, int userId);

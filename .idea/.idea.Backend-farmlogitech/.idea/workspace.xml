@@ -9,7 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="" />
+    <list default="true" id="ee3a8f72-de8b-46bb-8040-6dc1c62a0a6f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Backend-farmlogitech/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Messages/QueryServices/MessageQueryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Application/Internal/Messages/QueryServices/MessageQueryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Mesagge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Aggregates/Mesagge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Messages/CreateMessageCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Commands/Messages/CreateMessageCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetAllMessagesByCollaboratorId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetAllMessagesByCollaboratorId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetAllMessagesByCollaboratorIdAndFarmerId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetAllMessagesByCollaboratorIdAndFarmerId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetMessageByIdAndUserId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Model/Queries/Message/GetMessageByIdAndUserId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Repositories/Messages/IMessageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Domain/Repositories/Messages/IMessageRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/MessageController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/CreateMessageResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/CreateMessageResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/MessageResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Backend-farmlogitech/Monitoring/Interfaces/REST/Resources/Messages/MessageResource.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="social-interaction" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

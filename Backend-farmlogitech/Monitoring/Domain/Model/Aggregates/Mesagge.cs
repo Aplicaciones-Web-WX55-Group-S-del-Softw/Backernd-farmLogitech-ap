@@ -4,11 +4,11 @@ namespace Backend_farmlogitech.Monitoring.Domain.Model.Aggregates
 {
     public class Message
     {
-        public long id { get; private set; }
-        public long collaboratorId { get; set; }
+        public int id { get; private set; }
+        public int collaboratorId { get; set; }
         public string description { get; set; }
-        public long farmerId { get; set; }
-        public long transmitterId { get; set; }
+        public int farmerId { get; set; }
+        public int transmitterId { get; set; }
 
         protected Message()
         {
