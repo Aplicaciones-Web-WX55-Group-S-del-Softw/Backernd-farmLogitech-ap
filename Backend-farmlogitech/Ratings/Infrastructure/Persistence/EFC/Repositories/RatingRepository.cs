@@ -19,7 +19,7 @@ public class RatingRepository : BaseRepository<Rating>, IRatingRepository
     
     public async Task<Rating> FindByUserIdAsync(int userId)
     {
-        return await Context.Set<Rating>().FirstOrDefaultAsync(f => f.Id == userId);
+        return await Context.Set<Rating>().FirstOrDefaultAsync(r => r.UserId == userId);
     }
 
     public async  Task<Rating> FindByIdx(int id)
