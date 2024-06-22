@@ -12,22 +12,22 @@ namespace Backend_farmlogitech.Monitoring.Infrastructure.Persistence.EFC.Reposit
         {
         }
 
-        public async Task<IEnumerable<Message>> FindAllByCollaboratorId(long collaboratorId)
+        public async Task<IEnumerable<Message>> FindAllByCollaboratorId(int collaboratorId)
         {
             return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> FindAllByCollaboratorIdAndFarmerId(long collaboratorId, long farmerId)
+        public async Task<IEnumerable<Message>> FindAllByCollaboratorIdAndFarmerId(int collaboratorId, int farmerId)
         {
             return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId && m.farmerId == farmerId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> FindAllMessageByCollaboratorIdAndTransmitterIdNot(long collaboratorId, long transmitterId)
+        public async Task<IEnumerable<Message>> FindAllMessageByCollaboratorIdAndTransmitterIdNot(int collaboratorId, int transmitterId)
         {
             return await Context.Set<Message>().Where(m => m.collaboratorId == collaboratorId && m.transmitterId != transmitterId).ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> FindAllMessageByFarmerIdAndTransmitterIdNot(long farmerId, long transmitterId)
+        public async Task<IEnumerable<Message>> FindAllMessageByFarmerIdAndTransmitterIdNot(int farmerId, int transmitterId)
         {
             return await Context.Set<Message>().Where(m => m.farmerId == farmerId && m.transmitterId != transmitterId).ToListAsync();
         }
