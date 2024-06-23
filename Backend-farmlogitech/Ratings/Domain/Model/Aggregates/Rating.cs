@@ -48,14 +48,11 @@ public class Rating
 
     public Rating(CreateRatingCommand command)
     {
-        this.Id = command.Id;
         this.StarRating = command.StarRating;
-        this.UserId = command.UserId;
     }
 
     public void Update(UpdateRatingCommand command)
     {
         this.StarRating = command.StarRating;
-        this.UserId = command.UserId;
     }
 }

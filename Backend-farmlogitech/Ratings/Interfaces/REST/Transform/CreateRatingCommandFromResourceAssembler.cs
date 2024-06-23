@@ -7,6 +7,6 @@ public static class CreateRatingCommandFromResourceAssembler
 {
     public static CreateRatingCommand ToCommandFromResource(CreateRatingResource resource)
     {
-        return new CreateRatingCommand(resource.Id, resource.StarRating, resource.UserId);
+        return new CreateRatingCommand(resource.StarRating);
     }
 }

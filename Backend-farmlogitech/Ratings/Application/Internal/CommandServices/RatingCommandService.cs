@@ -25,25 +25,28 @@ public class RatingCommandService : IRatingCommandService
     public async Task<Rating> Handle(CreateRatingCommand command)
     {
         var userGlobal = User.UserAuthenticate.UserId;
+        if(userGlobal==null||userGlobal==0)
+        {
+            throw new Exception("User not found");
+        }
         var userRole = await userRepository.GetUserRole(userGlobal);
-        if (userRole.Role != Role.OWNER)
+        if (userRole.Role != Role.OWNER || userRole.Role == null)
         {
             throw new Exception("Only users with role OWNER can create a rating");
         }
+        
+        
 
         // Check if the rating already exists
-        var existingRating = await ratingRepository.FindByIdx(command.Id);
-        if (existingRating != null)
+        
+        var newRating = new Rating(command)
         {
-            throw new Exception("Rating with this ID already exists");
-        }
-
-        var newRating = new Rating(command);
+            UserId = userGlobal
+        };
         await ratingRepository.AddAsync(newRating);
         await unitOfWork.CompleteAsync();
         return newRating;
-    }
-
+    } 
     public async Task<Rating> Handle(UpdateRatingCommand command)
     {
         var userGlobal = User.UserAuthenticate.UserId; 

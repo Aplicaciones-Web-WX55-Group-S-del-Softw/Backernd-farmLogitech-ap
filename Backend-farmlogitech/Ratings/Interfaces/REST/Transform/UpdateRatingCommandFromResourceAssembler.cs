@@ -7,6 +7,6 @@ public static class UpdateRatingCommandFromResourceAssembler
 {
     public static UpdateRatingCommand ToCommandFromResource(UpdateRatingResource resource)
     {
-        return new UpdateRatingCommand(resource.Id, resource.StarRating, resource.UserId);
+        return new UpdateRatingCommand(resource.Id, resource.StarRating);
     }
 }
