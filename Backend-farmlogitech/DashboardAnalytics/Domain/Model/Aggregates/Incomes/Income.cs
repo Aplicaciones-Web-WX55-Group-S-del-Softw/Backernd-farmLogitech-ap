@@ -4,19 +4,19 @@ namespace Backend_farmlogitech.DashboardAnalytics.Domain.Model.Aggregates.Income
 
 public class Income
 {
-    public int Id { get; private set;  }
+    public int Id { get;  set;  }
     
-    public string Category { get; private set; }
+    public string Category { get;  set; }
     
-    public string Description { get; private set; }
+    public string Description { get;  set; }
     
-    public double Amount { get; private set; }
+    public double Amount { get;  set; }
     
-    public string Date { get; private set; }
+    public string Date { get;  set; }
     
-    public string Period { get; private set; }
+    public string Period { get;  set; }
     
-    public int FarmId{ get; private set; }
+    public int FarmId{ get;  set; }
     
     protected Income()
     {
@@ -34,8 +34,7 @@ public class Income
         this.Category=command.Category;
         this.Amount=command.Amount;
         this.Date=command.Date;
-        this.Period=command.Period;
-        this.FarmId=command.FarmId;
+        this.Period = command.Period;
     }
     
 }

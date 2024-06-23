@@ -77,13 +77,10 @@ public class Crop
 
     public Crop(CreateCropCommand command)
     {
-        this.Id = command.Id; 
         this.Type = command.Type;
         this.PlantingDate = command.PlantingDate;
         this.Quantity = command.Quantity;
         this.ShedId = command.ShedId;
-        this.FarmId = command.FarmId;
-        this.UserId = command.UserId;
     }
 
     public void Update(UpdateCropCommand command)
@@ -92,8 +89,6 @@ public class Crop
         this.Type = command.Type;
         this.Quantity = command.Quantity;
         this.ShedId = command.ShedId;
-        this.FarmId = command.FarmId;
-        this.UserId = command.UserId;
     }
     
     public void Delete(DeleteCropCommand command)

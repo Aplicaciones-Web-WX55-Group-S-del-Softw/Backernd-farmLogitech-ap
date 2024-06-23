@@ -9,4 +9,8 @@ public interface IUserRepository : IBaseRepository<User>
     bool ExistsByUsername(string username);
     
     Task<User?> GetUserRole(int id);
+
+    Task<User?> GetUsername(int id); 
+    
+    Task<User?> GetPassword(int id);
 }

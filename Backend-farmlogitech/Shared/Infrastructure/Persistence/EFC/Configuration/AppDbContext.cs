@@ -42,6 +42,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             // Configuración de la entidad Shed
             builder.Entity<Shed>().ToTable("Sheds");
             builder.Entity<Shed>().HasKey(f => f.Id);
+            builder.Entity<Shed>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Shed>().Property(f => f.FarmId);
             builder.Entity<Shed>().Property(f => f.Location);
             builder.Entity<Shed>().Property(f => f.Type);
@@ -51,6 +52,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             //Configuracion de la entidad Animal
             builder.Entity<Animal>().ToTable("Animals");
             builder.Entity<Animal>().HasKey(f => f.Id);
+            builder.Entity<Animal>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Animal>().Property(f => f.Age);
             builder.Entity<Animal>().Property(f => f.Location);
             builder.Entity<Animal>().Property(f => f.HealthState);
@@ -62,6 +64,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             //Configuracion de la entidad Crop
             builder.Entity<Crop>().ToTable("Crops");
             builder.Entity<Crop>().HasKey(f => f.Id);
+            builder.Entity<Crop>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Crop>().Property(f => f.Type);
             builder.Entity<Crop>().Property(f => f.PlantingDate);
             builder.Entity<Crop>().Property(f => f.Quantity);
@@ -88,6 +91,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             //Configuracion de la entidad Income
             builder.Entity<Income>().ToTable("Incomes");
             builder.Entity<Income>().HasKey(f => f.Id);
+            builder.Entity<Income>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Income>().Property(f => f.Category);
             builder.Entity<Income>().Property(f => f.Amount);
             builder.Entity<Income>().Property(f => f.Description);
@@ -99,6 +103,7 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             //Configuracion de la entidad Expense
             builder.Entity<Expense>().ToTable("Expenses");
             builder.Entity<Expense>().HasKey(f => f.Id);
+            builder.Entity<Expense>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Expense>().Property(f => f.Category);
             builder.Entity<Expense>().Property(f => f.Amount);
             builder.Entity<Expense>().Property(f => f.Description);
@@ -133,6 +138,20 @@ namespace backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configura
             builder.Entity<Profile>().Property(p => p.documentNumber);
             builder.Entity<Profile>().Property(p => p.documentType);
             builder.Entity<Profile>().Property(p => p.userId);
+            builder.Entity<Profile>().Property(p => p.role);
+            builder.UseSnakeCaseNamingConvention();
+            
+            
+            // Configuración de la entidad User
+            builder.Entity<Employee>().ToTable("Employees");
+            builder.Entity<Employee>().HasKey(e => e.Id);
+            builder.Entity<Employee>().Property(u => u.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Employee>().Property(e => e.FarmId);
+            builder.Entity<Employee>().Property(e => e.Name);
+            builder.Entity<Employee>().Property(e => e.Phone);
+            builder.Entity<Employee>().Property(e => e.Username);
+            builder.Entity<Employee>().Property(e => e.Password);
+            builder.Entity<Employee>().Property(e => e.Position);
             builder.UseSnakeCaseNamingConvention();
             
             // IAM Context

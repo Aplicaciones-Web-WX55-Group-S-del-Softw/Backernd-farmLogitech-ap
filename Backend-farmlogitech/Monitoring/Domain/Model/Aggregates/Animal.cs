@@ -95,8 +95,6 @@ public class Animal
         this.Location = command.Location;
         this.HealthState = command.HealthState;
         this.ShedId = command.ShedId; 
-        this.FarmId = command.FarmId;
-        this.UserId = command.UserId;
     }
 
     public Animal(string name)
@@ -112,8 +110,6 @@ public class Animal
         this.Location = command.Location;
         this.HealthState = command.HealthState;
         this.ShedId = command.ShedId;
-        this.FarmId = command.FarmId;
-        this.UserId = command.UserId;
     }
     
     public void Delete(DeleteAnimalCommand command)

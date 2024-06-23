@@ -17,31 +17,33 @@ namespace Backend_farmlogitech.Profiles.Application.Internal.CommandServices
         private readonly IProfileRepository _profileRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly AppDbContext _dbContext; // Use AppDbContext here
-        private readonly IUserRepository userRepository;
+        private readonly IUserRepository _userRepository;
 
         public ProfileCommandService(IProfileRepository profileRepository, IHttpContextAccessor httpContextAccessor, AppDbContext dbContext, IUserRepository userRepository) // Use AppDbContext here
         {
             _profileRepository = profileRepository;
             _httpContextAccessor = httpContextAccessor;
             _dbContext = dbContext;
-            this.userRepository = userRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<Profile> Handle(CreateProfileCommand command)
         {
-            var userId = User.UserAuthenticate.UserId;
+            var userglobal = User.UserAuthenticate.UserId;
 
             // Get the role of the user
-            var userRole = await userRepository.GetUserRole(userId);
+            var userRole = await _userRepository.GetUserRole(userglobal);
 
             // Check if the user role is allowed to create a profile
-            if (userRole.Role != Role.FARMER && userRole.Role != Role.OWNER)
+            if (userRole != null && userRole.Role != Role.FARMER && userRole.Role != Role.OWNER)
             {
                 throw new Exception("Only users with allowed role can create a profile");
             }
+            
+            
 
             // Check if the user has already created a profile
-            var existingProfile = await _profileRepository.GetProfileByUserId(userId);
+            var existingProfile = await _profileRepository.GetProfileByUserId(userglobal);
             if (existingProfile != null)
             {
                 throw new Exception("User has already created a profile");
@@ -49,10 +51,11 @@ namespace Backend_farmlogitech.Profiles.Application.Internal.CommandServices
 
             var profile = new Profile(command)
             {
-                id = userId
+                id = userglobal,
+                role= (int)userRole.Role
             };
 
-            profile.userId = userId;
+            profile.userId = userglobal;
             await _profileRepository.AddAsync(profile);
             await _dbContext.SaveChangesAsync(); // Add this line
 

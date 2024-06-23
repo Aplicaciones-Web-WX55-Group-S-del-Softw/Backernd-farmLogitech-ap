@@ -8,6 +8,8 @@ using Backend_farmlogitech.DashboardAnalytics.Domain.Repositories.Expenses;
 using Backend_farmlogitech.DashboardAnalytics.Domain.Repositories.Incomes;
 using Backend_farmlogitech.DashboardAnalytics.Domain.Services;
 using Backend_farmlogitech.DashboardAnalytics.Infrastructure.Persistence.EFC.Repositories;
+using Backend_farmlogitech.Employees.Application.Internal.CommandServices;
+using Backend_farmlogitech.Employees.Application.Internal.QueryServices;
 using Backend_farmlogitech.Farms.Application.Internal.CommandServices;
 using Backend_farmlogitech.Farms.Application.Internal.QueryServices;
 using Backend_farmlogitech.Farms.Domain.Repositories;
@@ -196,6 +198,11 @@ builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
 builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
 builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IEmployeeCommandService, EmployeeCommandService>();
+builder.Services.AddScoped<IEmployeeQueryService, EmployeeQueryService>();
+
 
 // IAM Bounded Context Injection Configuration
 builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));

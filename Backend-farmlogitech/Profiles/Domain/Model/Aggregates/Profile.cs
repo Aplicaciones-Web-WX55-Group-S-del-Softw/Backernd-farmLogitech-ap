@@ -11,12 +11,14 @@ public partial class Profile
     public string documentNumber { get;  set; }
     public string documentType { get;  set; }
     public int userId { get;  set; }
+    
+    public int role { get; set; }
 
     public Profile()
     {
     }
 
-    public Profile(int id, string name, string email, string direction, string documentNumber, string documentType, int userId)
+    public Profile(int id, string name, string email, string direction, string documentNumber, string documentType, int userId, int role )
     {
         this.id = id;
         this.name = name;
@@ -25,6 +27,7 @@ public partial class Profile
         this.documentNumber = documentNumber;
         this.documentType = documentType;
         this.userId = userId;
+        this.role = role;
     }
 
     public Profile(CreateProfileCommand command)
@@ -34,5 +37,6 @@ public partial class Profile
         this.direction = command.Direction;
         this.documentNumber = command.DocumentNumber;
         this.documentType = command.DocumentType;
+        
     }
 } 

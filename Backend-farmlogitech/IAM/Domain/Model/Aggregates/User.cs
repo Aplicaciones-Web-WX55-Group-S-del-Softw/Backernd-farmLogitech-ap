@@ -10,9 +10,9 @@ public class User(string username, string passwordHash, Role role)
 
     public int Id { get;  }
 
-    public string Username { get; private set; } = username;
+    public string Username { get;  set; } = username;
 
-    [JsonIgnore] public string PasswordHash { get; private set; } = passwordHash;
+    [JsonIgnore] public string PasswordHash { get;  set; } = passwordHash;
 
     public Role Role { get; private set; } = role;
 
@@ -55,6 +55,8 @@ public class User(string username, string passwordHash, Role role)
     public static class UserAuthenticate
     {
         public static int UserId { get; set; }
+        public static string Username { get; set; }
+        public static string Password { get; set; }
     }
     
     

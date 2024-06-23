@@ -25,24 +25,38 @@ public class FarmCommandService : IFarmCommandService
     
     public async Task<Farm> Handle(CreateFarmCommand command)
     {
+        // Obtiene el ID del usuario autenticado globalmente
         var userGlobal = User.UserAuthenticate.UserId;
+
+        // Obtiene el rol del usuario a partir del ID del usuario
         var userRole = await userRepository.GetUserRole(userGlobal);
+
+        // Verifica si el rol del usuario no es FARMER. Si no lo es, lanza una excepción
         if (userRole.Role != Role.FARMER)
         {
             throw new Exception("Only users with role FARMER can create a farm");
         }
 
-        // Check if the user has already created a farm
+        // Verifica si el usuario ya ha creado una granja. Si ya ha creado una, lanza una excepción
         var existingFarm = await farmRepository.GetFarmByUserId(userGlobal);
         if (existingFarm != null)
         {
             throw new Exception("User has already created a farm");
         }
 
+        // Crea una nueva granja con el comando proporcionado
         var farmNew = new Farm(command);
+
+        // Asigna el ID del usuario a la nueva granja
         farmNew.UserId = userGlobal;
+
+        // Agrega la nueva granja al repositorio
         await farmRepository.AddAsync(farmNew);
+
+        // Completa la transacción de la unidad de trabajo
         await unitOfWork.CompleteAsync();
+
+        // Devuelve la nueva granja
         return farmNew;
     }
     

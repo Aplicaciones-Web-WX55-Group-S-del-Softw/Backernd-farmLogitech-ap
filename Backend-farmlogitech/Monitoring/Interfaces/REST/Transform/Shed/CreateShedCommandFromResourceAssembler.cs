@@ -7,6 +7,6 @@ public static class CreateShedCommandFromResourceAssembler
 {
     public static CreateShedCommand ToCommandFromResource(CreateShedResource resource)
     {
-        return new CreateShedCommand(resource.Id, resource. FarmId,  resource. Location,  resource. Type);;
+        return new CreateShedCommand(resource. Location,  resource. Type);;
     }
 }
