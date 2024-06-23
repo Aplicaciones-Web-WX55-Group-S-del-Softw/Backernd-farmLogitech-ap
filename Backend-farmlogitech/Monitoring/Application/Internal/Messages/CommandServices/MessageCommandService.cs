@@ -32,9 +32,9 @@ namespace Backend_farmlogitech.Monitoring.Application.Internal.Messages.CommandS
             var userRole = await _userRepository.GetUserRole(userGlobal);
 
             // Check if the user role is not TRANSMITTER. If it's not, throw an exception
-            if (userRole.Role != Role.FARMER)
+            if (userRole.Role != Role.FARMER || userRole.Role != Role.FARMWORKER )
             {
-                throw new Exception("Only users with role FARMER can create a message");
+                throw new Exception("Only users with role FARMER and FARMWORKER can create a message");
             }
 
             // Check if the user has already created a message. If they have, throw an exception

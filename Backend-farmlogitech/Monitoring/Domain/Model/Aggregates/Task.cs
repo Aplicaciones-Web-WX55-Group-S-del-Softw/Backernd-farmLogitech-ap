@@ -7,10 +7,10 @@ public class Task
 {
     protected Task(int id, int collaboratorId, int farmerId, string description)
     {
-        this.id = 0;
-        this.collaboratorId = 0;
-        this.farmerId = 0;
-        this.description = string.Empty;
+        this.id = id;
+        this.collaboratorId = collaboratorId;
+        this.farmerId = farmerId;
+        this.description = description;
     }
     
     private string _description;
