@@ -41,7 +41,7 @@ public class Shed
         get { return _farmId; }
         set
         {
-            if (value <= 0)
+            if (value < 0)
             {
                 throw new Exception("FarmId must be greater than 0.");
             }
@@ -51,10 +51,6 @@ public class Shed
 
     protected Shed()
     {
-        this.Id = 0;
-        this.FarmId = 0;
-        this.Location = string.Empty;
-        this.Type = string.Empty;
     }
 
     public Shed(CreateShedCommand command)

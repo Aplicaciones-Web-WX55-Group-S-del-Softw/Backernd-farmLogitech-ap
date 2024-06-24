@@ -63,5 +63,6 @@ namespace Backend_farmlogitech.Profiles.Interfaces.REST
             var resources = employees.Select(EmployeeResourceFromEntityAssembler.ToResource);
             return Ok(resources);
         }
+        
     }
 }

@@ -77,7 +77,7 @@ namespace Backend_farmlogitech.Employees.Application.Internal.CommandServices
             };
             
             // como que sign up
-            var signUpCommand = new SignUpCommand(command.Username, command.Password, Role.FARMER);
+            var signUpCommand = new SignUpCommand(command.Username, command.Password, Role.FARMWORKER);
             await _usercommandService.Handle(signUpCommand);
 
             // Agrega el nuevo empleado al repositorio

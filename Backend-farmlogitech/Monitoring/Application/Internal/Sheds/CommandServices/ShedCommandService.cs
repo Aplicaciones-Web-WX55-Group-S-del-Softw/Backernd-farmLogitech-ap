@@ -3,7 +3,6 @@ using Backend_farmlogitech.Farms.Domain.Repositories;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
 using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
 using Backend_farmlogitech.IAM.Domain.Repositories;
-using Backend_farmlogitech.IAM.Infrastructure.Persistence.EFC.Repositories;
 using Backend_farmlogitech.Monitoring.Domain.Model.Aggregates;
 using Backend_farmlogitech.Monitoring.Domain.Model.Commands.Sheds;
 using Backend_farmlogitech.Monitoring.Domain.Repositories.Sheds;
@@ -11,10 +10,20 @@ using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
 
 namespace Backend_farmlogitech.Monitoring.Application.Internal.Sheds.CommandServices;
 
-public class ShedCommandService(IUnitOfWork unitOfWork,IShedRepository shedRepository):IShedCommandService
+public class ShedCommandService :IShedCommandService
 {
     private readonly IUserRepository _userRepository;
-    private readonly IFarmRepository _farmRepository;
+    private readonly IFarmRepository _farmRepository; 
+    private readonly IShedRepository _shedRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public ShedCommandService(IUserRepository userRepository, IFarmRepository farmRepository, IShedRepository shedRepository, IUnitOfWork unitOfWork)
+    {
+        _userRepository = userRepository;
+        _farmRepository = farmRepository;
+        _shedRepository = shedRepository;
+        _unitOfWork = unitOfWork;
+    }
 
     public async Task<Shed> Handle(CreateShedCommand command)
     {
@@ -39,21 +48,26 @@ public class ShedCommandService(IUnitOfWork unitOfWork,IShedRepository shedRepos
 
         // Obtiene el ID de la granja
         var farmId = farm.GetId();
+        if (farmId == 0)
+        {
+            throw new Exception("farm id is null");
+        } ;
+    
         
 
         // Crea un nuevo cultivo con el comando proporcionado y asigna el FarmId y UserId
-        var ShedNew = new Shed(command)
+        var shedNew = new Shed(command)
         {
             FarmId = farmId,
         };
 
         // Agrega el nuevo cultivo al repositorio
-        await shedRepository.AddAsync(ShedNew);
+        await _shedRepository.AddAsync(shedNew);
 
         // Completa la transacción de la unidad de trabajo
-        await unitOfWork.CompleteAsync();
+        await _unitOfWork.CompleteAsync();
 
         // Devuelve el nuevo cultivo
-        return ShedNew;
+        return shedNew;
     }
 }

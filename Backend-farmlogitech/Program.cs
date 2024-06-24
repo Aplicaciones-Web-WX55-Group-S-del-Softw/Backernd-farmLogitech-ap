@@ -253,7 +253,7 @@ if (app.Environment.IsDevelopment())
 
 
 
-//app.UseCors("AllowAllPolicy");
+app.UseCors("AllowAllPolicy");
 
 
 // app.UseRequestAuthorization();

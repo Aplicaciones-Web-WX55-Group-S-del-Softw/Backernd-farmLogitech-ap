@@ -34,17 +34,15 @@ public class AnimalCommandService : IAnimalCommandService
         var userRole = await _userRepository.GetUserRole(userGlobal);
 
         // Verifica si el rol del usuario no es FARMER. Si no lo es, lanza una excepción
-        if (userRole != null && (userRole.Role != Role.FARMER || userRole.Role != Role.FARMWORKER))
+        if (userRole == null && (userRole.Role != Role.FARMER || userRole.Role != Role.FARMWORKER))
         {
             throw new Exception("Only users with role FARMER can create an animal");
         }
+         
 
         // Obtiene la granja a la que pertenece el usuario autenticado
         var farm = await _farmRepository.GetFarmByUserId(userGlobal);
-        if (farm == null)
-        {
-            throw new Exception("User does not belong to any farm");
-        }
+        
 
         // Obtiene el ID de la granja
         var farmId = farm.GetId();
