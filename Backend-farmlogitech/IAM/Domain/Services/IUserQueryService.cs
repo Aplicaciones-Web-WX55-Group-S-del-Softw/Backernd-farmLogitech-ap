@@ -8,4 +8,5 @@ public interface IUserQueryService
     Task<User?> Handle(GetUserByIdQuery query);
     Task<User?> Handle(GetUserByUsernameQuery query);
     Task<IEnumerable<User>> Handle(GetAllUsersQuery query);
+    Task<User?> Handle(GetUserByIdAndRole query);
 }

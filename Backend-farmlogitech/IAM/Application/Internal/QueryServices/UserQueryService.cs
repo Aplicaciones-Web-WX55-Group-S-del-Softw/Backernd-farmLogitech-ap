@@ -21,4 +21,10 @@ public class UserQueryService(IUserRepository userRepository) : IUserQueryServic
     {
         return await userRepository.ListAsync();
     }
+    
+    public async Task<User?> Handle(GetUserByIdAndRole query)
+    {
+        return await userRepository.FindByIdAndRoleAsync(query.Id, query.role);
+    }
+    
 }

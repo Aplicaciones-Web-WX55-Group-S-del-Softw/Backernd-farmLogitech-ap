@@ -6,11 +6,11 @@ public class Message
 {
     protected Message(int id, int collaboratorId, string description, int farmerId, int transmitterId)
     {
-        this.id = 0;
-        this.collaboratorId = 0;
-        this.description = string.Empty;
-        this.farmerId = 0;
-        this.transmitterId = 0;
+        this.id = id;
+        this.collaboratorId = collaboratorId;
+        this.description = description;
+        this.farmerId = farmerId;
+        this.transmitterId = transmitterId;
     }
     
     private string _description;
@@ -66,6 +66,5 @@ public class Message
         this.collaboratorId = command.collaboratorId;
         this.description = command.description;
         this.farmerId = command.farmerId;
-        this.transmitterId = command.transmitterId;
     }
 }

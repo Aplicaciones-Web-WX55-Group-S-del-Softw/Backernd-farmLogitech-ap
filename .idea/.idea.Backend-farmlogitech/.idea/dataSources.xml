@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="farmlogitech@localhost" uuid="a51b9c65-e712-4d74-b539-88505b61f6e8">
-    <data-source source="LOCAL" name="capybara@localhost" uuid="0ce6ed01-107b-4772-a9cf-c6224c6c1e5e">
+    <data-source source="LOCAL" name="farmlogitech@localhost" uuid="ad53f09b-d63e-4857-a0f2-5d9cafa97e41">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/capybara</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="sephirot@localhost" uuid="96917f72-c8cc-445e-b7ad-7e22af37fb2a">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/sephirot</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="sma@localhost" uuid="443622d7-589f-44e7-ac9e-5d70c18bd1a6">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/sma</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/farmlogitech</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

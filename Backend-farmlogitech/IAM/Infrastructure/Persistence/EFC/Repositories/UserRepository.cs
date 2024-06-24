@@ -2,6 +2,7 @@ using Backend_farmlogitech.IAM.Domain.Repositories;
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Configuration;
 using backend_famLogitech_aw.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
+using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend_farmlogitech.IAM.Infrastructure.Persistence.EFC.Repositories;
@@ -32,5 +33,10 @@ public class UserRepository(AppDbContext context) : BaseRepository<User>(context
     {
         return Context.Set<User>().FirstOrDefaultAsync(user => user.Id == id);
 
+    }
+    
+    public async Task<User?> FindByIdAndRoleAsync(int Id, Role role)
+    {
+        return await Context.Set<User>().FirstOrDefaultAsync(user => user.Id == Id && user.Role == role);
     }
 }

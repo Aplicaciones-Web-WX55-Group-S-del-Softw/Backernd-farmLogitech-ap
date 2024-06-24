@@ -1,5 +1,6 @@
 using backend_famLogitech_aw.Shared.Domain.Repositories;
 using Backend_farmlogitech.IAM.Domain.Model.Aggregates;
+using Backend_farmlogitech.IAM.Domain.Model.ValueObjects;
 
 namespace Backend_farmlogitech.IAM.Domain.Repositories;
 
@@ -13,4 +14,6 @@ public interface IUserRepository : IBaseRepository<User>
     Task<User?> GetUsername(int id); 
     
     Task<User?> GetPassword(int id);
+    
+    Task<User?> FindByIdAndRoleAsync(int Id, Role role);
 }
