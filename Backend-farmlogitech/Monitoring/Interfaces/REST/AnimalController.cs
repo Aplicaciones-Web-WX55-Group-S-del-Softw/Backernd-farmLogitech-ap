@@ -1,4 +1,5 @@
 using System.Net.Mime;
+using Backend_farmlogitech.Monitoring.Domain.Model.Commands.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Model.Queries.Animals;
 using Backend_farmlogitech.Monitoring.Domain.Services.Animals;
 using Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Animals;
@@ -26,7 +27,7 @@ public class AnimalController : ControllerBase
     {
         var createAnimalCommand = CreateAnimalCommandFromResourceAssembler.ToCommandFromResource(resource);
         var animal = await _animalCommandService.Handle(createAnimalCommand);
-        return CreatedAtAction(nameof(GetAnimalByIdQuery), new { id = animal.Id }, 
+        return CreatedAtAction(nameof(GetAnimalById), new { id = animal.Id }, 
             AnimalResourceFromEntityAssembler.ToResourceFromEntity(animal));
     }
     
@@ -48,7 +49,7 @@ public class AnimalController : ControllerBase
         return Ok(resource);
     }
 
-    [HttpGet("animal/all")]
+    [HttpGet("all")]
     public async Task<ActionResult> GetAllAnimals()
     {
         var query = new GetAllAnimalsQuery();
@@ -66,10 +67,10 @@ public class AnimalController : ControllerBase
     }
     
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteCrop([FromBody] DeleteAnimalResource resource)
+    public async Task<ActionResult> DeleteAnimal(int id)
     {
-        var deleteAnimalcommand = DeleteAnimalCommandFromResourceAssembler.ToCommandFromResource(resource);
-        var result = await _animalCommandService.Handle(deleteAnimalcommand);
+        var deleteAnimalCommand = new DeleteAnimalCommand(id);
+        var result = await _animalCommandService.Handle(deleteAnimalCommand);
         return Ok(AnimalResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
     

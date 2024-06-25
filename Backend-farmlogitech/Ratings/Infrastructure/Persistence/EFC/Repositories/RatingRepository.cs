@@ -8,16 +8,18 @@ namespace Backend_farmlogitech.Ratings.Infrastructure.Persistence.EFC.Repositori
 
 public class RatingRepository : BaseRepository<Rating>, IRatingRepository
 {
-   
+    public RatingRepository(AppDbContext context) : base(context)
+    {
+    }
     
     public async Task<IEnumerable<Rating>> FindByAllRatingAsync()
     {
         return await Context.Set<Rating>().ToListAsync();
     }
     
-    public async Task<IEnumerable<Rating>> FindByUserIdAsync(int userId)
+    public async Task<Rating> FindByUserIdAsync(int userId)
     {
-        return await Context.Set<Rating>().Where(r => r.UserId == userId).ToListAsync();
+        return await Context.Set<Rating>().FirstOrDefaultAsync(f => f.Id == userId);
     }
 
     public async  Task<Rating> FindByIdx(int id)
@@ -25,9 +27,4 @@ public class RatingRepository : BaseRepository<Rating>, IRatingRepository
         
         return await Context.Set<Rating>().FirstOrDefaultAsync(f => f.Id == id);
     }
-
-
-    public RatingRepository(AppDbContext context) : base(context)
-    {
-    }
-}  
+}

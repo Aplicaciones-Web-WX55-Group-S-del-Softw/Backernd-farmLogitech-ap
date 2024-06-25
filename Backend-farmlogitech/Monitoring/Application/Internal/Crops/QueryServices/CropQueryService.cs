@@ -8,13 +8,43 @@ namespace Backend_farmlogitech.Monitoring.Application.Internal.Crops.QueryServic
 public class CropQueryService : ICropQueryService
 {
     private ICropRepository _cropRepository;
+
+    public CropQueryService(ICropRepository cropRepository)
+    {
+        _cropRepository = cropRepository;
+    }
+
     public async Task<Crop> Handle(GetCropByIdQuery query)
     {
-        return await _cropRepository.FindByIdAsync(query.Id);
+        if (query == null)
+        {
+            throw new ArgumentNullException(nameof(query));
+        }
+
+        var crop = await _cropRepository.FindByIdAsync(query.Id);
+
+        if (crop == null)
+        {
+            throw new Exception($"No crop found with id {query.Id}");
+        }
+
+        return crop;
     }
 
     public async Task<IEnumerable<Crop>> Handle(GetAllCropsQuery query)
     {
-        return await _cropRepository.FindByAllCropAsync(); 
+        if (query == null)
+        {
+            throw new ArgumentNullException(nameof(query));
+        }
+
+        var crops = await _cropRepository.FindByAllCropAsync();
+
+        if (crops == null || !crops.Any())
+        {
+            throw new Exception("No crops found.");
+        }
+
+        return crops;
     }
 }

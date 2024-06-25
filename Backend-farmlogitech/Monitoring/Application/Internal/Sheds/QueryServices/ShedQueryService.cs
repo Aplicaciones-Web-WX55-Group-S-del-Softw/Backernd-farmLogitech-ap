@@ -5,15 +5,22 @@ using Backend_farmlogitech.Monitoring.Domain.Services.Sheds;
 
 namespace Backend_farmlogitech.Monitoring.Application.Internal.Sheds.QueryServices;
 
-public class ShedQueryService(IShedRepository shedRepository) :IShedQueryService
+public class ShedQueryService :IShedQueryService
 {
+    private readonly IShedRepository _shedRepository;
+
+    public ShedQueryService(IShedRepository shedRepository)
+    {
+        this._shedRepository = shedRepository;
+    }
+
     public async Task<IEnumerable<Shed>> Handle(GetAllShedQuery query)
     {
-        return await shedRepository.FindByAllShedAsync();
+        return await _shedRepository.FindByAllShedAsync();
     }
 
     public async Task<Shed> Handle(GetShedByIdQuery query)
     {
-        return await shedRepository.FindShedById(query.Id);
+        return await _shedRepository.FindShedById(query.Id);
     }
 }

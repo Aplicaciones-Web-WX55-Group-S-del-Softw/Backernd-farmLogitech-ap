@@ -1,8 +1,11 @@
 using System.Net.Mime;
+using System.Security.Claims;
+using Backend_farmlogitech.Farms.Domain.Model.Commands.Farm;
 using Backend_farmlogitech.Farms.Domain.Model.Queries.Farm;
 using Backend_farmlogitech.Farms.Domain.Services;
 using Backend_farmlogitech.Farms.Interfaces.REST.Resources.Farm;
 using Backend_farmlogitech.Farms.Interfaces.REST.Transform.Farm;
+using Backend_farmlogitech.IAM.Infrastructure.Pipeline.Middleware.Attributes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend_farmlogitech.Farms.Interfaces.REST;
@@ -13,15 +16,25 @@ namespace Backend_farmlogitech.Farms.Interfaces.REST;
 public class FarmController(IFarmCommandService farmCommandService, IFarmQueryService farmQueryService)
     : ControllerBase
 {
-    /*
+
+    
     [HttpPost]
     public async Task<ActionResult> CreateFarmSource([FromBody] CreateFarmResource resource)
     {
         var createFarmCommand = CreateFarmCommandFromResourceAssembler.ToCommandFromResource(resource);
+    
+ 
+
         var result = await farmCommandService.Handle(createFarmCommand);
         return CreatedAtAction(nameof(GetFarmById), new { id = result.Id },
             FarmResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
+    
+    
+    
+    
+    
+    
     
     
     [HttpGet("{id}")]
@@ -43,6 +56,19 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         return Ok(resources);
     }
     
+    [HttpGet("me")]
+    public async Task<ActionResult> GetFarmByProfileId()
+    {
+        var getAllFarmByLocationQuery = new GetFarmByUserIdQuery();
+        var result = await farmQueryService.Handle(getAllFarmByLocationQuery);
+        if (result == null)
+        {
+            return NotFound(); // Devuelve un 404 si no se encuentra la granja
+        }
+        var resource = FarmResourceFromEntityAssembler.ToResourceFromEntity(result);
+        return Ok(resource);
+    }
+    
     [HttpGet("farm/all")]
     public async Task<ActionResult> GetAllFarms()
     {        
@@ -51,14 +77,15 @@ public class FarmController(IFarmCommandService farmCommandService, IFarmQuerySe
         var resources = result.Select(FarmResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
-    [HttpPut("{id}")]
+    
+    [HttpPut]
     public async Task<ActionResult> UpdateFarm( [FromBody] UpdateFarmResource resource)
     {
         var updateFarmCommand = UpdateFarmCommandFromResourceAssembler.ToCommandFromResource(resource);
         var result = await farmCommandService.Handle(updateFarmCommand);
         return Ok(FarmResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
-    */
+
     
   
 }

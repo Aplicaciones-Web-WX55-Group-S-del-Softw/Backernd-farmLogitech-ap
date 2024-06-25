@@ -1,3 +1,4 @@
+using Backend_farmlogitech.IAM.Infrastructure.Pipeline.Middleware.Attributes;
 using Backend_farmlogitech.Monitoring.Domain.Model.Queries.Crops;
 using Backend_farmlogitech.Monitoring.Domain.Services.Crops;
 using Backend_farmlogitech.Monitoring.Interfaces.REST.Resources.Crops;
@@ -9,6 +10,7 @@ namespace Backend_farmlogitech.Monitoring.Interfaces.REST;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces("application/json")]
+
 public class CropController : ControllerBase
 {
     private ICropQueryService _cropQueryService;
@@ -38,7 +40,7 @@ public class CropController : ControllerBase
         return Ok(resource);
     }
 
-    [HttpGet("crops/all")]
+    [HttpGet("all")]
     public async Task<ActionResult> GetAllCrops()
     {
         var query = new GetAllCropsQuery();
