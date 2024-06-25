@@ -21,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bf13250627785885c7e9de74bca35203286cd0eb" />
+        <entry key="$PROJECT_DIR$" value="monitoring" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,7 +64,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "profiles",
+    "git-widget-placeholder": "dashboard-analytics",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -252,7 +252,7 @@
     <MESSAGE value="feat(profiles): ProfileCommandService.cs and profilequeryservice updated" />
     <MESSAGE value="feat(feature/profile): Add Role in Authentication" />
     <MESSAGE value="feat: profiles context facade implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: profiles context facade implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
