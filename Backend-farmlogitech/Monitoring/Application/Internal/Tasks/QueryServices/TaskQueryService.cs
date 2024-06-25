@@ -14,5 +14,6 @@ public class TaskQueryService (ITaskRepository taskRepository): ITaskQueryServic
     public async Task<IEnumerable<AggregatesTask>> Handle(GetAllTasksByCollaboratorId query)
     {
         return await taskRepository.FindByCollaboratorIdAsync(query.collaboratorId);
+        
     }
 }
